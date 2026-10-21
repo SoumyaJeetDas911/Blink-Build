@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Account — VeloxPay Sovereign Treasury Infrastructure</title>
+  <meta name="description" content="Open a corporate VeloxPay treasury account. Instant multi-currency IBANs, 24/7 instant settlement rails (FedNow, SEPA Instant, FPS), zero hidden FX spreads, and Tier-1 bank custody.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="pages.css">
+</head>
+<body>
+  <!-- Ambient Glow Blobs -->
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+
+  <!-- Header -->
+  <header class="navbar" id="velox-nav">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <div class="brand-symbol">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
+        <span class="brand-name">Velox<strong>Pay</strong></span>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="index.html#features" class="nav-item">Features</a>
+        <a href="index.html#specs" class="nav-item">Specifications</a>
+        <a href="index.html#ledger" class="nav-item">Treasury Ledger</a>
+        <a href="index.html#pricing" class="nav-item">Pricing</a>
+        <a href="index.html#faq" class="nav-item">FAQ</a>
+      </nav>
+
+      <div class="nav-buttons">
+        <a href="login.html" class="btn-text">Sign In</a>
+        <a href="signup.html" class="btn btn-glow active" style="box-shadow: 0 0 35px rgba(0, 240, 255, 0.6);">Open Account</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="subpage-wrapper">
+    <div class="container">
+      <!-- Breadcrumb Bar -->
+      <div class="subpage-breadcrumb-nav">
+        <a href="index.html" class="breadcrumb-back">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Back to VeloxPay Platform Overview
+        </a>
+        <div class="system-status-indicator">
+          <span class="pulse-emerald"></span>
+          <span>Instant Clearing Enabled • FedNow &amp; SEPA Instant Live</span>
+        </div>
+      </div>
+
+      <!-- Main Two-Column Auth Grid -->
+      <div class="auth-grid">
+        <!-- Left Column: Value Proposition & Dynamic FX Savings Calculator -->
+        <div class="auth-showcase-panel">
+          <div class="showcase-header">
+            <div class="showcase-tag">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+              Zero-Friction Corporate Onboarding
+            </div>
+            <h1 class="showcase-title">Deploy enterprise global banking rails in minutes.</h1>
+            <p class="showcase-desc">
+              Get dedicated multi-currency IBANs, direct access to wholesale FX interbank liquidity, and automated batch settlement APIs with zero account opening fees.
+            </p>
+          </div>
+
+          <!-- Dynamic FX Spread Savings Calculator -->
+          <div class="savings-calc-box">
+            <div class="savings-calc-header">
+              <span class="calc-title">⚡ Real-Time FX Savings Calculator</span>
+              <span style="font-size: 0.75rem; color: var(--accent-emerald);">● Mid-Market Index</span>
+            </div>
+
+            <div class="volume-slider-wrap">
+              <div class="slider-label-val">
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Estimated Monthly Payout Volume:</span>
+                <span class="slider-val-readout" id="volume-readout">$500,000 USD</span>
+              </div>
+              <input 
+                type="range" 
+                min="50000" 
+                max="5000000" 
+                step="50000" 
+                value="500000" 
+                class="velox-range-slider" 
+                id="volume-slider"
+              >
+            </div>
+
+            <div class="savings-result-card">
+              <div>
+                <span class="savings-label">Your Estimated Annual Spread Savings:</span>
+                <div style="font-size: 0.72rem; color: var(--text-dim); margin-top: 3px;">
+                  Vs traditional commercial bank markups (2.65% avg spread)
+                </div>
+              </div>
+              <div class="savings-value" id="savings-amount">$15,000 / mo</div>
+            </div>
+          </div>
+
+          <!-- Dedicated Virtual IBANs Showcase Strip -->
+          <div class="telemetry-card" style="padding: 20px;">
+            <div class="telemetry-header" style="margin-bottom: 12px;">
+              <span class="telemetry-title">Dedicated Sub-Account Allocation</span>
+              <span class="telemetry-live-pill">INSTANT PROVISIONING</span>
+            </div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px;">
+              Upon completion, your organization receives dedicated virtual IBANs in your company's legal name across 4 global clearing jurisdictions:
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; font-size: 0.8rem;">
+              <div style="background: rgba(255,255,255,0.03); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.06);">
+                🇺🇸 <strong>US FedNow:</strong> Direct ABA Routing
+              </div>
+              <div style="background: rgba(255,255,255,0.03); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.06);">
+                🇪🇺 <strong>EU SEPA:</strong> DE89 Virtual IBAN
+              </div>
+              <div style="background: rgba(255,255,255,0.03); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.06);">
+                🇬🇧 <strong>UK FPS:</strong> 60-16 Sort Code
+              </div>
+              <div style="background: rgba(255,255,255,0.03); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.06);">
+                🇸🇬 <strong>SG FAST:</strong> MEPS+ Direct Clearing
+              </div>
+            </div>
+          </div>
+
+          <!-- Trust Strip -->
+          <div class="security-trust-card">
+            <div class="sec-features-grid">
+              <div class="sec-feature-item">
+                <span class="sec-icon">🏛️</span>
+                <div class="sec-text">
+                  <strong>Deutsche Bank &amp; JPMorgan</strong>
+                  <span>Tier-1 segregated custody safeguarding.</span>
+                </div>
+              </div>
+              <div class="sec-feature-item">
+                <span class="sec-icon">⚡</span>
+                <div class="sec-text">
+                  <strong>Instant Sandbox Access</strong>
+                  <span>Test APIs immediately with $50k simulated capital.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: 4-Step Interactive Account Provisioning Wizard -->
+        <div class="auth-card" id="signup-card">
+          <!-- Step Progress Node Bar -->
+          <div class="wizard-progress-bar">
+            <div class="wizard-progress-fill" id="wizard-fill"></div>
+            
+            <div class="wizard-step-node active" data-step="1" id="step-node-1">
+              <div class="node-circle">1</div>
+              <span class="node-label">Entity</span>
+            </div>
+            <div class="wizard-step-node" data-step="2" id="step-node-2">
+              <div class="node-circle">2</div>
+              <span class="node-label">Officer</span>
+            </div>
+            <div class="wizard-step-node" data-step="3" id="step-node-3">
+              <div class="node-circle">3</div>
+              <span class="node-label">Rails</span>
+            </div>
+            <div class="wizard-step-node" data-step="4" id="step-node-4">
+              <div class="node-circle">4</div>
+              <span class="node-label">Keys</span>
+            </div>
+          </div>
+
+          <!-- Selected Plan Banner (if opened from pricing) -->
+          <div id="plan-badge-box" style="display: none; background: rgba(0, 240, 255, 0.1); border: 1px solid var(--border-bright); padding: 10px 14px; border-radius: var(--radius-sm); margin-bottom: 20px; font-size: 0.85rem; color: var(--primary-cyan);">
+            Selected Plan: <strong id="selected-plan-name">Growth Tier</strong> • 14-Day Free Unlimited Clearing Included
+          </div>
+
+          <!-- Form Wizard Container -->
+          <form id="signup-wizard-form">
+            <!-- ================= STEP 1: Entity & Jurisdiction ================= -->
+            <div class="wizard-step-pane active" id="step-pane-1">
+              <div class="step-pane-header">
+                <h3 class="step-pane-title">Corporate Entity Details</h3>
+                <p class="step-pane-sub">Register your legal entity to satisfy global AML/KYB compliance regulations.</p>
+              </div>
+
+              <div class="form-group">
+                <label for="company-name" class="form-label">Legal Registered Company Name</label>
+                <div class="input-container">
+                  <input 
+                    type="text" 
+                    id="company-name" 
+                    class="velox-input no-icon" 
+                    placeholder="e.g. Apex Global Technologies Inc." 
+                    required
+                  >
+                </div>
+              </div>
+
+              <div class="form-row-2col">
+                <div class="form-group">
+                  <label for="country-select" class="form-label">Jurisdiction of Incorporation</label>
+                  <select id="country-select" class="velox-select">
+                    <option value="US">🇺🇸 United States (Delaware / C-Corp)</option>
+                    <option value="GB">🇬🇧 United Kingdom (Companies House)</option>
+                    <option value="DE">🇩🇪 Germany (GmbH / AG)</option>
+                    <option value="SG">🇸🇬 Singapore (ACRA)</option>
+                    <option value="AU">🇦🇺 Australia (ASIC)</option>
+                    <option value="CA">🇨🇦 Canada (Corporations Canada)</option>
+                    <option value="AE">🇦🇪 United Arab Emirates (DIFC / ADGM)</option>
+                    <option value="JP">🇯🇵 Japan (Kabushiki Kaisha)</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="volume-tier" class="form-label">Anticipated Monthly Volume</label>
+                  <select id="volume-tier" class="velox-select">
+                    <option value="tier1">$50,000 – $250,000 / month</option>
+                    <option value="tier2" selected>$250,000 – $1,000,000 / month</option>
+                    <option value="tier3">$1,000,000 – $10,000,000 / month</option>
+                    <option value="tier4">$10,000,000+ Institutional</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="treasury-use-case" class="form-label">Primary Treasury Architecture Goal</label>
+                <select id="treasury-use-case" class="velox-select">
+                  <option value="crossborder">Cross-Border Supplier &amp; Contractor Payouts</option>
+                  <option value="multi-iban">Multi-Currency Customer Collection IBANs</option>
+                  <option value="fx-hedging">Real-Time Wholesale FX Liquidity &amp; Hedging</option>
+                  <option value="corporate-cards">Programmatic Virtual Corporate Cards &amp; Sub-Ledgers</option>
+                </select>
+              </div>
+
+              <div class="wizard-actions-row">
+                <div></div>
+                <button type="button" class="btn btn-glow" id="goto-step-2-btn">
+                  Continue to Corporate Officer ➔
+                </button>
+              </div>
+            </div>
+
+            <!-- ================= STEP 2: Executive Administrator ================= -->
+            <div class="wizard-step-pane" id="step-pane-2">
+              <div class="step-pane-header">
+                <h3 class="step-pane-title">Authorized Corporate Officer</h3>
+                <p class="step-pane-sub">Designate the primary executive signing officer for your organization's sovereign vault.</p>
+              </div>
+
+              <div class="form-row-2col">
+                <div class="form-group">
+                  <label for="officer-name" class="form-label">Full Legal Name</label>
+                  <input type="text" id="officer-name" class="velox-input no-icon" placeholder="Alexandra Vance" required>
+                </div>
+                <div class="form-group">
+                  <label for="officer-role" class="form-label">Corporate Title</label>
+                  <select id="officer-role" class="velox-select">
+                    <option value="cfo">Chief Financial Officer (CFO)</option>
+                    <option value="treasury_vp">VP of Corporate Treasury</option>
+                    <option value="founder">Founder / Managing Director</option>
+                    <option value="cto">Chief Technology Officer (CTO)</option>
+                    <option value="controller">Corporate Controller</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="officer-email" class="form-label">Official Corporate Work Email</label>
+                <input type="email" id="officer-email" class="velox-input no-icon" placeholder="a.vance@company.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="officer-phone" class="form-label">Direct Mobile (For Critical Hardware 2FA)</label>
+                <input type="tel" id="officer-phone" class="velox-input no-icon" placeholder="+1 (555) 019-2834" required>
+              </div>
+
+              <div class="wizard-actions-row">
+                <button type="button" class="wizard-back-btn" id="backto-step-1-btn">← Back</button>
+                <button type="button" class="btn btn-glow" id="goto-step-3-btn">
+                  Continue to Settlement Rails ➔
+                </button>
+              </div>
+            </div>
+
+            <!-- ================= STEP 3: Payout Rails & Currencies ================= -->
+            <div class="wizard-step-pane" id="step-pane-3">
+              <div class="step-pane-header">
+                <h3 class="step-pane-title">Select Active Settlement Rails</h3>
+                <p class="step-pane-sub">Choose which domestic clearing rails and multi-currency wallets to provision immediately.</p>
+              </div>
+
+              <div class="rails-selector-grid">
+                <div class="rail-select-card selected" data-rail="fednow">
+                  <span class="rail-flag">🇺🇸</span>
+                  <div class="rail-info">
+                    <strong>USD FedNow + ACH</strong>
+                    <span>Instant Federal Reserve Clearing</span>
+                  </div>
+                </div>
+
+                <div class="rail-select-card selected" data-rail="sepa">
+                  <span class="rail-flag">🇪🇺</span>
+                  <div class="rail-info">
+                    <strong>EUR SEPA Instant</strong>
+                    <span>36-Nation Eurozone Liquidity</span>
+                  </div>
+                </div>
+
+                <div class="rail-select-card selected" data-rail="fps">
+                  <span class="rail-flag">🇬🇧</span>
+                  <div class="rail-info">
+                    <strong>GBP Faster Payments</strong>
+                    <span>Bank of England RTGS Rail</span>
+                  </div>
+                </div>
+
+                <div class="rail-select-card selected" data-rail="fast">
+                  <span class="rail-flag">🇸🇬</span>
+                  <div class="rail-info">
+                    <strong>SGD FAST &amp; PayNow</strong>
+                    <span>MAS Instant Clearing Engine</span>
+                  </div>
+                </div>
+
+                <div class="rail-select-card" data-rail="npp">
+                  <span class="rail-flag">🇦🇺</span>
+                  <div class="rail-info">
+                    <strong>AUD New Payments (NPP)</strong>
+                    <span>PayID Instant 24/7 Settlement</span>
+                  </div>
+                </div>
+
+                <div class="rail-select-card" data-rail="zengin">
+                  <span class="rail-flag">🇯🇵</span>
+                  <div class="rail-info">
+                    <strong>JPY Zengin Net</strong>
+                    <span>Bank of Japan RTGS Gateway</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-glass); border-radius: var(--radius-sm); padding: 14px 16px;">
+                <label class="custom-checkbox-label" style="color: var(--text-main);">
+                  <input type="checkbox" id="prefund-sandbox" checked>
+                  <span><strong>Include $50,000 USD simulated sandbox capital</strong> for your engineering team to test batch payouts right away.</span>
+                </label>
+              </div>
+
+              <div class="wizard-actions-row">
+                <button type="button" class="wizard-back-btn" id="backto-step-2-btn">← Back</button>
+                <button type="button" class="btn btn-glow" id="goto-step-4-btn">
+                  Continue to Security Setup ➔
+                </button>
+              </div>
+            </div>
+
+            <!-- ================= STEP 4: Credentials & Provision ================= -->
+            <div class="wizard-step-pane" id="step-pane-4">
+              <div class="step-pane-header">
+                <h3 class="step-pane-title">Master Cryptographic Security</h3>
+                <p class="step-pane-sub">Create your master vault encryption key and agree to Tier-1 custodian segregation terms.</p>
+              </div>
+
+              <div class="form-group">
+                <label for="new-password" class="form-label">Vault Master Password</label>
+                <input 
+                  type="password" 
+                  id="new-password" 
+                  class="velox-input no-icon" 
+                  placeholder="Min. 12 characters, uppercase, symbol &amp; digits" 
+                  required
+                >
+                <div class="pwd-meter-box">
+                  <div class="pwd-bar-track">
+                    <div class="pwd-bar-fill" id="pwd-fill"></div>
+                  </div>
+                  <span class="pwd-feedback-text" id="pwd-feedback">Password security score: None</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="confirm-password" class="form-label">Confirm Master Password</label>
+                <input 
+                  type="password" 
+                  id="confirm-password" 
+                  class="velox-input no-icon" 
+                  placeholder="••••••••••••••••" 
+                  required
+                >
+              </div>
+
+              <div class="form-group" style="margin-bottom: 24px;">
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" id="agree-terms" required checked>
+                  <span style="font-size: 0.82rem;">
+                    I certify that I am an authorized corporate signing officer and agree to the 
+                    <a href="#" style="color: var(--primary-cyan);">Master Custody Protocol</a> and 
+                    <a href="#" style="color: var(--primary-cyan);">Safeguarding Ringfence Agreement</a>.
+                  </span>
+                </label>
+              </div>
+
+              <div class="wizard-actions-row">
+                <button type="button" class="wizard-back-btn" id="backto-step-3-btn">← Back</button>
+                <button type="submit" class="btn btn-glow" id="finish-signup-btn">
+                  <span class="btn-spinner" id="signup-spinner"></span>
+                  <span id="signup-btn-text">Provision Sovereign Vault ⚡</span>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <div class="auth-card-footer">
+            Already have an authorized treasury account? 
+            <a href="login.html">Sign In to Console</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Provisioning Real-Time Modal -->
+  <div class="modal-overlay" id="provision-modal">
+    <div class="auth-modal-dialog">
+      <div class="modal-badge-icon" id="prov-icon" style="background: rgba(0, 240, 255, 0.15);">⚙️</div>
+      <h3 class="modal-title" id="prov-title">Provisioning Sovereign Ledger...</h3>
+      <p class="modal-desc" id="prov-desc">
+        Routing virtual sub-accounts to Deutsche Bank &amp; JPMorgan Chase clearing engines.
+      </p>
+
+      <!-- Key readout box -->
+      <div class="provision-key-box" id="key-readout-box" style="display: none;">
+        <div class="key-label-row">
+          <span>YOUR PRODUCTION ORG ID</span>
+          <span style="color: var(--accent-emerald);">● ACTIVE</span>
+        </div>
+        <div class="key-code-readout" id="org-id-display">org_vx_2026_9941a82</div>
+        <br>
+        <div class="key-label-row">
+          <span>DEVELOPER SANDBOX API KEY (KEEP SECURE)</span>
+          <button class="resend-btn" id="copy-key-btn">Copy Key</button>
+        </div>
+        <div class="key-code-readout" id="api-key-display">vx_test_sec_89412089c447a1109ff88b</div>
+      </div>
+
+      <button class="btn btn-glow auth-submit-btn" id="launch-console-btn" style="display: none;">
+        <span>Launch Sovereign Console ➔</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="velox-toast" id="toast-notification">
+    <span id="toast-icon">✓</span>
+    <span id="toast-message">Notification message</span>
+  </div>
+
+  <footer class="footer" style="margin-top: 60px;">
+    <div class="container footer-wrapper">
+      <div class="footer-col brand-info">
+        <div class="brand">
+          <div class="brand-symbol">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </div>
+          <span class="brand-name">Velox<strong>Pay</strong></span>
+        </div>
+        <p>The sovereign cross-border payments protocol for modern global enterprise.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="index.html">Platform Overview</a>
+        <a href="login.html">Treasury Console</a>
+        <a href="signup.html">Open Global Account</a>
+      </div>
+      <div class="footer-col">
+        <h4>Compliance</h4>
+        <a href="index.html#specs">ISO 20022 Specs</a>
+        <a href="#">SOC2 Type II Report</a>
+        <a href="#">PCI-DSS Level 1</a>
+      </div>
+      <div class="footer-col">
+        <h4>Security</h4>
+        <a href="#">FIDO2 WebAuthn</a>
+        <a href="#">Ed25519 Keys</a>
+        <a href="#">Status: All Systems Normal</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactivity Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. URL Plan Parameter Detector (e.g. signup.html?plan=growth)
+      const urlParams = new URLSearchParams(window.location.search);
+      const planParam = urlParams.get('plan');
+      const planBadgeBox = document.getElementById('plan-badge-box');
+      const selectedPlanName = document.getElementById('selected-plan-name');
+
+      if (planParam) {
+        planBadgeBox.style.display = 'block';
+        if (planParam === 'starter') {
+          selectedPlanName.textContent = 'Starter Tier ($0/mo)';
+        } else if (planParam === 'growth') {
+          selectedPlanName.textContent = 'Growth Tier ($249/mo)';
+        } else if (planParam === 'enterprise') {
+          selectedPlanName.textContent = 'Enterprise Sovereign Tier';
+        }
+      }
+
+      // 2. Interactive FX Savings Calculator Slider
+      const volumeSlider = document.getElementById('volume-slider');
+      const volumeReadout = document.getElementById('volume-readout');
+      const savingsAmount = document.getElementById('savings-amount');
+
+      if (volumeSlider) {
+        volumeSlider.addEventListener('input', (e) => {
+          const val = parseInt(e.target.value, 10);
+          volumeReadout.textContent = `$${val.toLocaleString('en-US')} USD`;
+          
+          // Bank markup ~ 2.65%, Velox flat ~ 0.15% => Net savings 2.5%
+          const monthlySavings = Math.round(val * 0.025);
+          savingsAmount.textContent = `$${monthlySavings.toLocaleString('en-US')} / mo`;
+        });
+      }
+
+      // 3. Multi-Step Wizard Flow
+      let currentStep = 1;
+      const totalSteps = 4;
+      const wizardFill = document.getElementById('wizard-fill');
+      
+      const stepPanes = {
+        1: document.getElementById('step-pane-1'),
+        2: document.getElementById('step-pane-2'),
+        3: document.getElementById('step-pane-3'),
+        4: document.getElementById('step-pane-4')
+      };
+
+      const stepNodes = {
+        1: document.getElementById('step-node-1'),
+        2: document.getElementById('step-node-2'),
+        3: document.getElementById('step-node-3'),
+        4: document.getElementById('step-node-4')
+      };
+
+      function updateWizardUI(targetStep) {
+        // Update panes
+        Object.keys(stepPanes).forEach(step => {
+          stepPanes[step]?.classList.toggle('active', parseInt(step) === targetStep);
+        });
+
+        // Update nodes & progress line
+        Object.keys(stepNodes).forEach(step => {
+          const s = parseInt(step);
+          const node = stepNodes[step];
+          if (s === targetStep) {
+            node.classList.add('active');
+            node.classList.remove('completed');
+          } else if (s < targetStep) {
+            node.classList.remove('active');
+            node.classList.add('completed');
+          } else {
+            node.classList.remove('active');
+            node.classList.remove('completed');
+          }
+        });
+
+        const progressPercent = ((targetStep - 1) / (totalSteps - 1)) * 90;
+        wizardFill.style.width = `${progressPercent}%`;
+        currentStep = targetStep;
+      }
+
+      // Step Buttons
+      document.getElementById('goto-step-2-btn').addEventListener('click', () => {
+        const companyName = document.getElementById('company-name').value.trim();
+        if (!companyName) {
+          alert('Please enter your legal company name.');
+          document.getElementById('company-name').focus();
+          return;
+        }
+        updateWizardUI(2);
+      });
+
+      document.getElementById('backto-step-1-btn').addEventListener('click', () => updateWizardUI(1));
+
+      document.getElementById('goto-step-3-btn').addEventListener('click', () => {
+        const officerName = document.getElementById('officer-name').value.trim();
+        const officerEmail = document.getElementById('officer-email').value.trim();
+        if (!officerName || !officerEmail) {
+          alert('Please provide executive officer contact details.');
+          return;
+        }
+        updateWizardUI(3);
+      });
+
+      document.getElementById('backto-step-2-btn').addEventListener('click', () => updateWizardUI(2));
+      document.getElementById('goto-step-4-btn').addEventListener('click', () => updateWizardUI(4));
+      document.getElementById('backto-step-3-btn').addEventListener('click', () => updateWizardUI(3));
+
+      // Click on completed nodes directly
+      Object.keys(stepNodes).forEach(step => {
+        stepNodes[step].addEventListener('click', () => {
+          const target = parseInt(step);
+          if (target < currentStep) {
+            updateWizardUI(target);
+          }
+        });
+      });
+
+      // 4. Rail Selector Toggle
+      const railCards = document.querySelectorAll('.rail-select-card');
+      railCards.forEach(card => {
+        card.addEventListener('click', () => {
+          card.classList.toggle('selected');
+        });
+      });
+
+      // 5. Password Strength Meter
+      const newPwdInput = document.getElementById('new-password');
+      const pwdFill = document.getElementById('pwd-fill');
+      const pwdFeedback = document.getElementById('pwd-feedback');
+
+      newPwdInput.addEventListener('input', (e) => {
+        const val = e.target.value;
+        let score = 0;
+        if (val.length >= 8) score += 25;
+        if (val.length >= 12) score += 25;
+        if (/[A-Z]/.test(val)) score += 25;
+        if (/[0-9]/.test(val) && /[^A-Za-z0-9]/.test(val)) score += 25;
+
+        pwdFill.style.width = `${score}%`;
+        if (score <= 25) {
+          pwdFill.style.backgroundColor = '#ef4444';
+          pwdFeedback.textContent = 'Security Level: Weak (Needs 12+ chars, uppercase & symbols)';
+          pwdFeedback.style.color = '#ef4444';
+        } else if (score <= 50) {
+          pwdFill.style.backgroundColor = '#f59e0b';
+          pwdFeedback.textContent = 'Security Level: Moderate (Add digits and special symbols)';
+          pwdFeedback.style.color = '#f59e0b';
+        } else if (score <= 75) {
+          pwdFill.style.backgroundColor = '#38bdf8';
+          pwdFeedback.textContent = 'Security Level: Strong (Suitable for Enterprise Console)';
+          pwdFeedback.style.color = '#38bdf8';
+        } else {
+          pwdFill.style.backgroundColor = '#10b981';
+          pwdFeedback.textContent = 'Security Level: Sovereign Bank Grade (Maximum Protection)';
+          pwdFeedback.style.color = '#10b981';
+        }
+      });
+
+      // 6. Form Submission & Account Provisioning Celebration
+      const signupForm = document.getElementById('signup-wizard-form');
+      const finishSignupBtn = document.getElementById('finish-signup-btn');
+      const signupSpinner = document.getElementById('signup-spinner');
+      const signupBtnText = document.getElementById('signup-btn-text');
+
+      const provModal = document.getElementById('provision-modal');
+      const provIcon = document.getElementById('prov-icon');
+      const provTitle = document.getElementById('prov-title');
+      const provDesc = document.getElementById('prov-desc');
+      const keyReadoutBox = document.getElementById('key-readout-box');
+      const launchConsoleBtn = document.getElementById('launch-console-btn');
+      const copyKeyBtn = document.getElementById('copy-key-btn');
+      const apiKeyDisplay = document.getElementById('api-key-display');
+
+      const toast = document.getElementById('toast-notification');
+      const toastIcon = document.getElementById('toast-icon');
+      const toastMessage = document.getElementById('toast-message');
+
+      function showToast(msg, icon = '✓') {
+        toastIcon.textContent = icon;
+        toastMessage.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3500);
+      }
+
+      signupForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const pwd1 = document.getElementById('new-password').value;
+        const pwd2 = document.getElementById('confirm-password').value;
+        if (pwd1 !== pwd2) {
+          alert('Passwords do not match. Please re-enter.');
+          return;
+        }
+
+        signupSpinner.style.display = 'inline-block';
+        signupBtnText.textContent = 'Deploying Vault...';
+        finishSignupBtn.disabled = true;
+
+        // Open Provisioning Modal
+        setTimeout(() => {
+          provModal.classList.add('active');
+
+          setTimeout(() => {
+            provTitle.textContent = 'Generating Ed25519 Keypair...';
+            provDesc.textContent = 'Creating cryptographic nonces and anchoring organization root.';
+          }, 1000);
+
+          setTimeout(() => {
+            provIcon.textContent = '🏛️';
+            provTitle.textContent = 'Allocating FedNow & SEPA Sub-Accounts...';
+            provDesc.textContent = 'Safeguarding contracts signed with JPMorgan Chase & Deutsche Bank.';
+          }, 2000);
+
+          setTimeout(() => {
+            provIcon.textContent = '🎉';
+            provIcon.style.background = 'rgba(16, 185, 129, 0.2)';
+            provTitle.textContent = 'Sovereign Treasury Vault Provisioned!';
+            provDesc.textContent = 'Your multi-currency IBANs are live and active. Here are your credentials:';
+            keyReadoutBox.style.display = 'block';
+            launchConsoleBtn.style.display = 'flex';
+            
+            showToast('Account successfully provisioned!', '⚡');
+          }, 3200);
+        }, 600);
+      });
+
+      // Copy API Key
+      copyKeyBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(apiKeyDisplay.textContent);
+        copyKeyBtn.textContent = 'Copied ✓';
+        showToast('API Key copied to clipboard!', '📋');
+        setTimeout(() => {
+          copyKeyBtn.textContent = 'Copy Key';
+        }, 2000);
+      });
+
+      // Launch Console
+      launchConsoleBtn.addEventListener('click', () => {
+        window.location.href = 'login.html';
+      });
+    });
+  </script>
+</body>
+</html>

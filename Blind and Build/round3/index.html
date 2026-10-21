@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus Quantum — High-Throughput AI Inference Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+  <!-- Top System Telemetry Bar -->
+  <header class="sys-bar" id="system-bar">
+    <div class="sys-left">
+      <div class="brand-badge">
+        <span class="nexus-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+            <polyline points="2 17 12 22 22 17"/>
+            <polyline points="2 12 12 17 22 12"/>
+          </svg>
+        </span>
+        <span class="brand-title">NEXUS<strong>CORE</strong></span>
+      </div>
+
+      <div class="sys-divider"></div>
+
+      <div class="cluster-tag">
+        <span class="ping-dot"></span>
+        <span class="cluster-id">us-east-vault-04</span>
+        <span class="tag-status">ONLINE</span>
+      </div>
+    </div>
+
+    <div class="sys-center">
+      <div class="telemetry-pill">
+        <span class="pill-label">LATENCY</span>
+        <span class="pill-val text-cyan" id="live-ping">12.4 ms</span>
+      </div>
+      <div class="telemetry-pill">
+        <span class="pill-label">VRAM UTIL</span>
+        <div class="mini-bar-track">
+          <div class="mini-bar-fill" style="width: 78%;"></div>
+        </div>
+        <span class="pill-val">78%</span>
+      </div>
+      <div class="telemetry-pill">
+        <span class="pill-label">ACTIVE NODES</span>
+        <span class="pill-val text-emerald">1,024 / 1,024</span>
+      </div>
+    </div>
+
+    <div class="sys-right">
+      <div class="user-profile">
+        <div class="user-avatar">RX</div>
+        <div class="user-info">
+          <div class="user-name">root@nexus-01</div>
+          <div class="user-role">SYS_ADMIN_L4</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Workspace Subheader & Controls -->
+  <nav class="sub-nav">
+    <div class="sub-nav-container">
+      <div class="breadcrumbs">
+        <span class="bc-item">Inference Clusters</span>
+        <span class="bc-sep">/</span>
+        <span class="bc-item">Production Tier</span>
+        <span class="bc-sep">/</span>
+        <span class="bc-item active">DeepSeek-R1-671B</span>
+      </div>
+
+      <div class="action-toolbar">
+        <div class="search-command">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input type="text" placeholder="Jump to deployment... (⌘K)" readonly>
+          <span class="shortcut-tag">⌘K</span>
+        </div>
+
+        <button class="btn btn-emerald" id="deploy-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          Deploy Replica
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Observability & Studio Area -->
+  <main class="dashboard-root">
+    <div class="container-fluid">
+      <!-- 4 Top Metric Cards -->
+      <section class="metrics-grid">
+        <!-- Metric 1 -->
+        <div class="metric-card">
+          <div class="metric-header">
+            <span class="m-label">TOKEN THROUGHPUT</span>
+            <span class="m-badge positive">+28.4%</span>
+          </div>
+          <div class="m-body">
+            <div class="m-value">84,290 <span class="m-unit">tps</span></div>
+            <!-- Mini Sparkline SVG -->
+            <svg class="sparkline" viewBox="0 0 100 24">
+              <path d="M0,20 Q20,12 35,16 T70,6 T100,2" fill="none" stroke="#00f0ff" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="m-footer">Global edge multi-region pool</div>
+        </div>
+
+        <!-- Metric 2 -->
+        <div class="metric-card">
+          <div class="metric-header">
+            <span class="m-label">AVG TTFT (FIRST TOKEN)</span>
+            <span class="m-badge positive">-14 ms</span>
+          </div>
+          <div class="m-body">
+            <div class="m-value">18.6 <span class="m-unit">ms</span></div>
+            <svg class="sparkline" viewBox="0 0 100 24">
+              <path d="M0,6 Q30,18 50,8 T80,14 T100,4" fill="none" stroke="#10b981" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="m-footer">FlashAttention-3 enabled</div>
+        </div>
+
+        <!-- Metric 3 -->
+        <div class="metric-card">
+          <div class="metric-header">
+            <span class="m-label">MEMORY KV-CACHE</span>
+            <span class="m-badge warning">WARM</span>
+          </div>
+          <div class="m-body">
+            <div class="m-value">91.4 <span class="m-unit">%</span></div>
+            <svg class="sparkline" viewBox="0 0 100 24">
+              <path d="M0,14 Q25,8 50,12 T75,6 T100,10" fill="none" stroke="#f59e0b" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="m-footer">1.4TB PagedAttention cache</div>
+        </div>
+
+        <!-- Metric 4 -->
+        <div class="metric-card">
+          <div class="metric-header">
+            <span class="m-label">ERROR TOLERANCE</span>
+            <span class="m-badge positive">99.999%</span>
+          </div>
+          <div class="m-body">
+            <div class="m-value">0.001 <span class="m-unit">%</span></div>
+            <svg class="sparkline" viewBox="0 0 100 24">
+              <path d="M0,22 L100,22" fill="none" stroke="#a855f7" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="m-footer">Zero dropped packet events</div>
+        </div>
+      </section>
+
+      <!-- Center Dual Studio Layout -->
+      <div class="studio-layout">
+        <!-- Left Pane: Interactive Inference Playground -->
+        <section class="studio-card playground-panel">
+          <div class="card-bar">
+            <div class="bar-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+              <span>INFERENCE PLAYGROUND</span>
+            </div>
+
+            <div class="model-tabs">
+              <button class="m-tab active" data-model="deepseek">DeepSeek-R1-671B</button>
+              <button class="m-tab" data-model="claude">Claude-3.5-Sonnet</button>
+              <button class="m-tab" data-model="llama">Llama-3.3-70B</button>
+            </div>
+          </div>
+
+          <div class="playground-body">
+            <!-- Controls Toolbar -->
+            <div class="param-row">
+              <div class="param-item">
+                <span class="p-name">Temp:</span>
+                <span class="p-val" id="temp-val">0.7</span>
+              </div>
+              <div class="param-item">
+                <span class="p-name">Top_P:</span>
+                <span class="p-val">0.95</span>
+              </div>
+              <div class="param-item">
+                <span class="p-name">Context:</span>
+                <span class="p-val text-cyan">128k Tokens</span>
+              </div>
+              <div class="param-item right">
+                <span class="p-name">Precision:</span>
+                <span class="badge-fp8">FP8 TensorCore</span>
+              </div>
+            </div>
+
+            <!-- Prompt Input Box -->
+            <div class="prompt-box">
+              <label class="prompt-label">System & User Prompt</label>
+              <textarea id="prompt-input" rows="3" placeholder="Enter test query or instructions for the distributed model...">Write an ultra-optimized matrix multiplication kernel using CUDA with shared memory tiling.</textarea>
+              <div class="prompt-bottom-bar">
+                <span class="token-count" id="prompt-tokens">19 tokens | 88 chars</span>
+                <button class="btn btn-cyan btn-glow" id="run-inference-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5 3 19 12 5 21 5 3"/>
+                  </svg>
+                  Execute Inference
+                </button>
+              </div>
+            </div>
+
+            <!-- Output Streaming Simulation Console -->
+            <div class="output-console">
+              <div class="console-head">
+                <span class="console-title">MODEL OUTPUT STREAM (284 TOKENS/SEC)</span>
+                <span class="stream-badge"><span class="blink">●</span> STREAMING READY</span>
+              </div>
+              <div class="code-stream" id="code-output">
+<span class="comment">// CUDA Tiled SGEMM Kernel - Nexus Auto-Generated</span>
+<span class="keyword">__global__</span> <span class="keyword">void</span> <span class="func">sgemm_tiled</span>(<span class="keyword">const</span> <span class="type">float</span>* A, <span class="keyword">const</span> <span class="type">float</span>* B, <span class="type">float</span>* C, <span class="type">int</span> N) {
+    <span class="keyword">__shared__</span> <span class="type">float</span> sA[TILE_DIM][TILE_DIM];
+    <span class="keyword">__shared__</span> <span class="type">float</span> sB[TILE_DIM][TILE_DIM];
+    
+    <span class="type">int</span> bx = blockIdx.x, by = blockIdx.y;
+    <span class="type">int</span> tx = threadIdx.x, ty = threadIdx.y;
+    <span class="type">float</span> acc = <span class="number">0.0f</span>;
+    <span class="comment">/* Loop over sub-matrices with zero bank conflicts */</span>
+}</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Right Pane: Pipeline Node Visualizer & Live Telemetry Log -->
+        <section class="studio-card telemetry-panel">
+          <div class="card-bar">
+            <div class="bar-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+              </svg>
+              <span>DISTRIBUTED PIPELINE FLOW</span>
+            </div>
+            <span class="pipeline-status">PIPELINE: SYNCHRONIZED</span>
+          </div>
+
+          <div class="pipeline-body">
+            <!-- Node Pipeline Architecture Visualizer -->
+            <div class="pipeline-flow">
+              <div class="node-box node-active">
+                <div class="node-indicator"></div>
+                <div class="node-name">Embed-Layer</div>
+                <div class="node-stat">0.8ms</div>
+              </div>
+
+              <div class="node-arrow">→</div>
+
+              <div class="node-box node-active">
+                <div class="node-indicator"></div>
+                <div class="node-name">KV-Cache</div>
+                <div class="node-stat">99.8% Hit</div>
+              </div>
+
+              <div class="node-arrow">→</div>
+
+              <div class="node-box node-glow">
+                <div class="node-indicator pulse"></div>
+                <div class="node-name">Tensor-Mesh</div>
+                <div class="node-stat">8x H100 SXM</div>
+              </div>
+
+              <div class="node-arrow">→</div>
+
+              <div class="node-box node-active">
+                <div class="node-indicator"></div>
+                <div class="node-name">Sampler</div>
+                <div class="node-stat">Top-P Logits</div>
+              </div>
+            </div>
+
+            <!-- Terminal Activity Logs -->
+            <div class="terminal-logs">
+              <div class="log-title-row">
+                <span>EVENT TELEMETRY LOG</span>
+                <span class="auto-scroll-tag">AUTO-TAIL ACTIVE</span>
+              </div>
+              <div class="log-stream" id="log-console">
+                <div class="log-line"><span class="log-time">17:25:01.002</span> <span class="tag-ok">[SYS]</span> Cluster rebalance complete across 128 nodes</div>
+                <div class="log-line"><span class="log-time">17:25:01.240</span> <span class="tag-cyan">[ENGINE]</span> DeepSeek-R1-671B checkpoint loaded (fp8)</div>
+                <div class="log-line"><span class="log-time">17:25:02.108</span> <span class="tag-purple">[CACHE]</span> PagedAttention table allocated 48,000 blocks</div>
+                <div class="log-line"><span class="log-time">17:25:03.491</span> <span class="tag-ok">[READY]</span> Socket listener bound to 0.0.0.0:8080 (gRPC)</div>
+                <div class="log-line highlight"><span class="log-time">17:25:04.912</span> <span class="tag-cyan">[INFERENCE]</span> Request #9821 completed in 18.2ms (412 tokens)</div>
+              </div>
+            </div>
+
+            <!-- Developer Integration Snippet -->
+            <div class="api-snippet-box">
+              <div class="snippet-header">
+                <span class="snip-label">Quick cURL Test</span>
+                <button class="copy-btn" id="copy-code-btn">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2 2v1"/>
+                  </svg>
+                  Copy
+                </button>
+              </div>
+              <pre class="snippet-code">curl https://api.nexus-quantum.cloud/v1/chat/completions \
+  -H "Authorization: Bearer nx_live_89f0294c..." \
+  -d '{"model":"deepseek-r1-671b","stream":true}'</pre>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Section 3: GPU Cluster Topology & Fleet Heatmap Matrix -->
+      <section class="dash-section" id="cluster-topology">
+        <div class="dash-section-header">
+          <div class="sec-title-wrap">
+            <span class="sec-badge">HARDWARE TELEMETRY</span>
+            <h2 class="sec-heading">H100 SXM5 Multi-Node Fleet Matrix</h2>
+            <p class="sec-sub">Real-time thermal envelope, NVLink 4.0 interconnect topology, and VRAM residency per silicon die.</p>
+          </div>
+
+          <div class="cluster-summary-bar">
+            <div class="sum-item">
+              <span class="sum-label">TOTAL FLEET DRAW</span>
+              <span class="sum-val text-amber">5.42 kW</span>
+            </div>
+            <div class="sum-item">
+              <span class="sum-label">NVLINK FABRIC</span>
+              <span class="sum-val text-cyan">3.2 TB/s</span>
+            </div>
+            <div class="sum-item">
+              <span class="sum-label">DIE HEALTH</span>
+              <span class="sum-val text-emerald">100% OPTIMAL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8 GPU Node Cards Grid -->
+        <div class="gpu-fleet-grid" id="gpu-fleet">
+          <!-- GPU 01 -->
+          <div class="gpu-card active" data-gpu="01" data-temp="61" data-vram="82" data-power="680">
+            <div class="gpu-top">
+              <span class="gpu-id">H100-SXM-01</span>
+              <span class="gpu-status status-active"><span class="dot"></span> ACTIVE</span>
+            </div>
+            <div class="gpu-metrics">
+              <div class="metric-row">
+                <span>VRAM (80GB HBM3e)</span>
+                <span class="val-mono">65.6 GB (82%)</span>
+              </div>
+              <div class="gpu-bar"><div class="gpu-bar-fill" style="width: 82%;"></div></div>
+              <div class="metric-row sub-row">
+                <span>Temp: <strong class="text-cyan">61°C</strong></span>
+                <span>Power: <strong class="text-amber">680W</strong></span>
+                <span>Fan: <strong>84%</strong></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- GPU 02 -->
+          <div class="gpu-card" data-gpu="02" data-temp="64" data-vram="86" data-power="695">
+            <div class="gpu-top">
+              <span class="gpu-id">H100-SXM-02</span>
+              <span class="gpu-status status-active"><span class="dot"></span> ACTIVE</span>
+            </div>
+            <div class="gpu-metrics">
+              <div class="metric-row">
+                <span>VRAM (80GB HBM3e)</span>
+                <span class="val-mono">68.8 GB (86%)</span>
+              </div>
+              <div class="gpu-bar"><div class="gpu-bar-fill" style="width: 86%;"></div></div>
+              <div class="metric-row sub-row">
+                <span>Temp: <strong class="text-cyan">64°C</strong></span>
+                <span>Power: <strong class="text-amber">695W</strong></span>
+                <span>Fan: <strong>88%</strong></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- GPU 03 -->
+          <div class="gpu-card" data-gpu="03" data-temp="58" data-vram="74" data-power="620">
+            <div class="gpu-top">
+              <span class="gpu-id">H100-SXM-03</span>
+              <span class="gpu-status status-active"><span class="dot"></span> ACTIVE</span>
+            </div>
+            <div class="gpu-metrics">
+              <div class="metric-row">
+                <span>VRAM (80GB HBM3e)</span>
+                <span class="val-mono">59.2 GB (74%)</span>
+              </div>
+              <div class="gpu-bar"><div class="gpu-bar-fill" style="width: 74%;"></div></div>
+              <div class="metric-row sub-row">
+                <span>Temp: <strong class="text-cyan">58°C</strong></span>
+                <span>Power: <strong class="text-amber">620W</strong></span>
+                <span>Fan: <strong>76%</strong></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- GPU 04 -->
+          <div class="gpu-card" data-gpu="04" data-temp="67" data-vram="91" data-power="700">
+            <div class="gpu-top">
+              <span class="gpu-id">H100-SXM-04</span>
+              <span class="gpu-status status-boost"><span class="dot pulse"></span> BOOST</span>
+            </div>
+            <div class="gpu-metrics">
+              <div class="metric-row">
+                <span>VRAM (80GB HBM3e)</span>
+                <span class="val-mono">72.8 GB (91%)</span>
+              </div>
+              <div class="gpu-bar"><div class="gpu-bar-fill warning" style="width: 91%;"></div></div>
+              <div class="metric-row sub-row">
+                <span>Temp: <strong class="text-amber">67°C</strong></span>
+                <span>Power: <strong class="text-amber">700W</strong></span>
+                <span>Fan: <strong>92%</strong></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- GPU 05 -->
+          <div class="gpu-card" data-gpu="05" data-temp="60" data-vram="79" data-power="640">
+            <div class="gpu-top">
+              <span class="gpu-id">H100-SXM-05</span>
+              <span class="gpu-status status-active"><span class="dot"></span> ACTIVE</span>
+            </div>
+            <div class="gpu-metrics">
+              <div class="metric-row">
+                <span>VRAM (80GB HBM3e)</span>
+                <span class="val-mono">63.2 GB (79%)</span>
+              </div>
+              <div class="gpu-bar"><div class="gpu-bar-fill" style="width: 79%;"></div></div>
+              <div class="metric-row sub-row">
+                <span>Temp: <strong class="text-cyan">60°C</strong></span>
+                <span>Power: <strong class="text-amber">640W</strong></span>
+                <span>Fan: <strong>78%</strong></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- GPU 06 -->
+          <div class="gpu-card" data-gpu="06" data-temp="62" data-vram="81" data-power="665">
+            <div class="gpu-top">
+              <span class="gpu-id">H100-SXM-06</span>
+              <span class="gpu-status status-active"><span class="dot"></span> ACTIVE</span>
+            </div>
+            <div class="gpu-metrics">
+              <div class="metric-row">
+                <span>VRAM (80GB HBM3e)</span>
+                <span class="val-mono">64.8 GB (81%)</span>
+              </div>
+              <div class="gpu-bar"><div class="gpu-bar-fill" style="width: 81%;"></div></div>
+              <div class="metric-row sub-row">
+                <span>Temp: <strong class="text-cyan">62°C</strong></span>
+                <span>Power: <strong class="text-amber">665W</strong></span>
+                <span>Fan: <strong>82%</strong></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- GPU 07 -->
+          <div class="gpu-card" data-gpu="07" data-temp="59" data-vram="76" data-power="630">
+            <div class="gpu-top">
+              <span class="gpu-id">H100-SXM-07</span>
+              <span class="gpu-status status-active"><span class="dot"></span> ACTIVE</span>
+            </div>
+            <div class="gpu-metrics">
+              <div class="metric-row">
+                <span>VRAM (80GB HBM3e)</span>
+                <span class="val-mono">60.8 GB (76%)</span>
+              </div>
+              <div class="gpu-bar"><div class="gpu-bar-fill" style="width: 76%;"></div></div>
+              <div class="metric-row sub-row">
+                <span>Temp: <strong class="text-cyan">59°C</strong></span>
+                <span>Power: <strong class="text-amber">630W</strong></span>
+                <span>Fan: <strong>75%</strong></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- GPU 08 -->
+          <div class="gpu-card" data-gpu="08" data-temp="63" data-vram="84" data-power="675">
+            <div class="gpu-top">
+              <span class="gpu-id">H100-SXM-08</span>
+              <span class="gpu-status status-active"><span class="dot"></span> ACTIVE</span>
+            </div>
+            <div class="gpu-metrics">
+              <div class="metric-row">
+                <span>VRAM (80GB HBM3e)</span>
+                <span class="val-mono">67.2 GB (84%)</span>
+              </div>
+              <div class="gpu-bar"><div class="gpu-bar-fill" style="width: 84%;"></div></div>
+              <div class="metric-row sub-row">
+                <span>Temp: <strong class="text-cyan">63°C</strong></span>
+                <span>Power: <strong class="text-amber">675W</strong></span>
+                <span>Fan: <strong>86%</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Node Inspector Bar -->
+        <div class="node-inspector" id="node-inspector-panel">
+          <span class="insp-tag">SELECTED NODE:</span>
+          <strong class="text-cyan" id="insp-node-name">H100-SXM-01</strong>
+          <span class="insp-sep">|</span>
+          <span>Kernel Process: <strong>deepseek-r1.weight_sharding_rank_0</strong></span>
+          <span class="insp-sep">|</span>
+          <span>ECC Status: <strong class="text-emerald">0 Single-bit Errors (Clean)</strong></span>
+          <span class="insp-sep">|</span>
+          <span>PCIe Gen5 Bandwidth: <strong>128 GB/s Full-Duplex</strong></span>
+        </div>
+      </section>
+
+      <!-- Section 4: Global Edge Latency & POP Matrix -->
+      <section class="dash-section" id="edge-matrix">
+        <div class="dash-section-header">
+          <div class="sec-title-wrap">
+            <span class="sec-badge">GLOBAL INFERENCE RAILS</span>
+            <h2 class="sec-heading">Anycast Point-of-Presence &amp; P99 Jitter</h2>
+            <p class="sec-sub">Distributed ingress edge endpoints with sub-millisecond local kernel dispatching.</p>
+          </div>
+
+          <button class="btn btn-cyan btn-sm" id="probe-edge-btn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M23 4v6h-6M1 20v-6h6"/>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+            </svg>
+            Probe All Edges
+          </button>
+        </div>
+
+        <div class="edge-grid">
+          <!-- POP 1 -->
+          <div class="edge-card">
+            <div class="edge-head">
+              <span class="flag">🇺🇸</span>
+              <div><strong>us-east-va (N. Virginia)</strong><span class="edge-region">Tier-1 Vault</span></div>
+            </div>
+            <div class="edge-ping text-cyan" id="ping-va">11.4 ms</div>
+            <div class="edge-details">
+              <span>P99: <strong>19.2ms</strong></span>
+              <span>Load: <strong>84%</strong></span>
+              <span class="status-badge"><span class="green-dot"></span> 99.999%</span>
+            </div>
+          </div>
+
+          <!-- POP 2 -->
+          <div class="edge-card">
+            <div class="edge-head">
+              <span class="flag">🇩🇪</span>
+              <div><strong>eu-central-de (Frankfurt)</strong><span class="edge-region">Equinix FR-2</span></div>
+            </div>
+            <div class="edge-ping text-cyan" id="ping-de">16.8 ms</div>
+            <div class="edge-details">
+              <span>P99: <strong>24.6ms</strong></span>
+              <span>Load: <strong>72%</strong></span>
+              <span class="status-badge"><span class="green-dot"></span> 99.995%</span>
+            </div>
+          </div>
+
+          <!-- POP 3 -->
+          <div class="edge-card">
+            <div class="edge-head">
+              <span class="flag">🇯🇵</span>
+              <div><strong>ap-northeast-jp (Tokyo)</strong><span class="edge-region">NTT Shinjuku</span></div>
+            </div>
+            <div class="edge-ping text-cyan" id="ping-jp">34.2 ms</div>
+            <div class="edge-details">
+              <span>P99: <strong>48.1ms</strong></span>
+              <span>Load: <strong>66%</strong></span>
+              <span class="status-badge"><span class="green-dot"></span> 100.0%</span>
+            </div>
+          </div>
+
+          <!-- POP 4 -->
+          <div class="edge-card">
+            <div class="edge-head">
+              <span class="flag">🇮🇪</span>
+              <div><strong>eu-west-ie (Dublin)</strong><span class="edge-region">Telehouse North</span></div>
+            </div>
+            <div class="edge-ping text-cyan" id="ping-ie">21.5 ms</div>
+            <div class="edge-details">
+              <span>P99: <strong>31.0ms</strong></span>
+              <span>Load: <strong>59%</strong></span>
+              <span class="status-badge"><span class="green-dot"></span> 99.99%</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Multi-Language Developer SDK & API Docs -->
+      <section class="dash-section" id="sdk-docs">
+        <div class="dash-section-header">
+          <div class="sec-title-wrap">
+            <span class="sec-badge">DEVELOPER INTEGRATION</span>
+            <h2 class="sec-heading">Cross-Language High-Throughput SDKs</h2>
+            <p class="sec-sub">Generate idiomatic asynchronous clients with zero serialization overhead and stream processing.</p>
+          </div>
+        </div>
+
+        <div class="sdk-studio-box">
+          <div class="sdk-toolbar">
+            <div class="sdk-lang-tabs">
+              <button class="sdk-tab active" data-lang="python">Python (Asyncio)</button>
+              <button class="sdk-tab" data-lang="ts">TypeScript / Node</button>
+              <button class="sdk-tab" data-lang="go">Go (gRPC)</button>
+              <button class="sdk-tab" data-lang="rust">Rust (Tokio)</button>
+              <button class="sdk-tab" data-lang="curl">cURL CLI</button>
+            </div>
+
+            <div class="sdk-actions">
+              <button class="btn-tool" id="toggle-key-btn">👁️ Show API Key</button>
+              <button class="btn-tool" id="copy-sdk-code-btn">📋 Copy Code</button>
+            </div>
+          </div>
+
+          <div class="sdk-code-viewer">
+            <pre class="sdk-pre" id="sdk-code-display"><code class="language-python">import asyncio
+from nexus_quantum import AsyncNexusClient
+
+client = AsyncNexusClient(api_key="nx_live_89f0294c771b...")
+
+async def main():
+    stream = await client.chat.completions.create(
+        model="deepseek-r1-671b",
+        messages=[{"role": "user", "content": "Generate CUDA SGEMM kernel"}],
+        stream=True,
+        temperature=0.7,
+        max_tokens=2048
+    )
+    async for chunk in stream:
+        print(chunk.delta.content or "", end="", flush=True)
+
+asyncio.run(main())</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 6: Token Quotas, Compute Economics & Autoscaling -->
+      <section class="dash-section" id="quota-billing">
+        <div class="dash-section-header">
+          <div class="sec-title-wrap">
+            <span class="sec-badge">COMPUTE ALLOCATION</span>
+            <h2 class="sec-heading">Token Economics &amp; Quota Capacity</h2>
+            <p class="sec-sub">Real-time resource burn rate, reserved enterprise allocations, and burst scaling switches.</p>
+          </div>
+        </div>
+
+        <div class="quota-grid">
+          <!-- Card 1 -->
+          <div class="quota-card">
+            <div class="quota-head">
+              <span class="quota-title">MONTHLY TOKEN BUDGET</span>
+              <span class="quota-pct text-cyan">74%</span>
+            </div>
+            <div class="quota-val">14,820,490 <span class="dim">/ 20,000,000 tokens</span></div>
+            <div class="quota-progress-track">
+              <div class="quota-fill" style="width: 74%;"></div>
+            </div>
+            <div class="quota-foot">Resets in 12 days • Tier: Enterprise Pro</div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="quota-card">
+            <div class="quota-head">
+              <span class="quota-title">GPU COMPUTE HOURS</span>
+              <span class="quota-pct text-emerald">64%</span>
+            </div>
+            <div class="quota-val">640.5 <span class="dim">/ 1,000.0 Hours</span></div>
+            <div class="quota-progress-track">
+              <div class="quota-fill emerald" style="width: 64%;"></div>
+            </div>
+            <div class="quota-foot">8x H100 dedicated reservation active</div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="quota-card">
+            <div class="quota-head">
+              <span class="quota-title">PREDICTIVE AUTOSCALING</span>
+              <span class="badge-status-on" id="autoscale-badge">ENABLED</span>
+            </div>
+            <div class="autoscale-wrap">
+              <p>Burst scale to secondary tier when concurrent queue latency &gt; 35ms.</p>
+              <button class="btn btn-outline btn-sm" id="toggle-autoscale-btn">Toggle Autoscaling</button>
+            </div>
+            <div class="quota-foot">Max Surge Limit: +16 Replicas</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 7: Granular Security Audit Trail & Incident Log -->
+      <section class="dash-section" id="security-trail">
+        <div class="dash-section-header">
+          <div class="sec-title-wrap">
+            <span class="sec-badge">SYSTEM SECURITY &amp; AUDIT</span>
+            <h2 class="sec-heading">Immutable Security Audit Trail</h2>
+            <p class="sec-sub">Cryptographically signed telemetry events, key rotations, and anomalous activity detection.</p>
+          </div>
+
+          <div class="audit-actions">
+            <button class="btn btn-outline btn-sm" id="simulate-anomaly-btn">⚠️ Simulate Anomaly Event</button>
+          </div>
+        </div>
+
+        <div class="audit-card">
+          <div class="table-responsive">
+            <table class="audit-table" id="audit-table">
+              <thead>
+                <tr>
+                  <th>TIMESTAMP (UTC)</th>
+                  <th>SEVERITY</th>
+                  <th>ORIGINATING IP / SOURCE</th>
+                  <th>EVENT ACTION</th>
+                  <th>SIGNATURE HASH</th>
+                </tr>
+              </thead>
+              <tbody id="audit-tbody">
+                <tr>
+                  <td class="font-mono text-dim">17:29:41.108</td>
+                  <td><span class="sev-pill sev-info">INFO</span></td>
+                  <td class="font-mono">192.88.99.14 (Internal VPC)</td>
+                  <td>ServiceAccount: cluster-autoscaler provisioned 2 additional node replicas</td>
+                  <td class="font-mono text-cyan">sha256:8f2a...c014</td>
+                </tr>
+                <tr>
+                  <td class="font-mono text-dim">17:28:14.992</td>
+                  <td><span class="sev-pill sev-info">INFO</span></td>
+                  <td class="font-mono">10.0.4.12 (Vault-KMS)</td>
+                  <td>Automated TLS 1.3 certificate renewal for *.nexus-quantum.cloud</td>
+                  <td class="font-mono text-cyan">sha256:1a9c...7b52</td>
+                </tr>
+                <tr>
+                  <td class="font-mono text-dim">17:24:52.418</td>
+                  <td><span class="sev-pill sev-warn">WARN</span></td>
+                  <td class="font-mono">185.220.101.5 (Tor Exit Node)</td>
+                  <td>Blocked unauthenticated inference attempt on /v1/chat/completions</td>
+                  <td class="font-mono text-cyan">sha256:ee41...9820</td>
+                </tr>
+                <tr>
+                  <td class="font-mono text-dim">17:19:04.112</td>
+                  <td><span class="sev-pill sev-info">INFO</span></td>
+                  <td class="font-mono">root@nexus-01 (Session #821)</td>
+                  <td>Model weights DeepSeek-R1-671B loaded with FP8 Tensor Core quantization</td>
+                  <td class="font-mono text-cyan">sha256:3c88...119d</td>
+                </tr>
+                <tr>
+                  <td class="font-mono text-dim">17:15:33.874</td>
+                  <td><span class="sev-pill sev-crit">CRIT</span></td>
+                  <td class="font-mono">203.0.113.88 (External API)</td>
+                  <td>Rate limit exceeded: 12,400 req/min from single token client (Throttled)</td>
+                  <td class="font-mono text-cyan">sha256:aa54...d39f</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- High-Tech Diagnostic Footer -->
+  <footer class="sys-footer">
+    <div class="footer-left">
+      <span class="status-badge"><span class="green-dot"></span> PROTOCOL v4.12-PROD</span>
+      <span class="diag-item">SHARD ID: <strong>US-EAST-4A</strong></span>
+      <span class="diag-item">TLS 1.3 | AES-GCM-256</span>
+    </div>
+    <div class="footer-right">
+      <span>NEXUS QUANTUM CLOUD COMPUTING INC. &copy; 2026</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

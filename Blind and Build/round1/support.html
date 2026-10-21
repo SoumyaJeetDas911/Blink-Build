@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Support &amp; Help Desk — AeroSound Official Care</title>
+  <meta name="description" content="Official AeroSound customer support, interactive troubleshooting diagnostics, firmware v2.4.1 downloads, warranty registration, and priority audio engineer assistance.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="pages.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar" id="main-nav">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M17 5v14M7 8v8M22 10v4M2 10v4"/>
+          </svg>
+        </span>
+        <span class="logo-text">Aero<strong>Sound</strong></span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html#features" class="nav-link">Features</a>
+        <a href="index.html#specs" class="nav-link">Specifications</a>
+        <a href="reviews.html" class="nav-link">Reviews</a>
+        <a href="support.html" class="nav-link active">Support</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="preorder.html" class="btn btn-primary btn-sm" id="nav-order-btn">Pre-Order</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Subpage Hero -->
+    <section class="subpage-hero">
+      <div class="container subpage-hero-container">
+        <div class="subpage-breadcrumb">
+          <a href="index.html">← Back to Showcase</a>
+          <span>/</span>
+          <span>AeroSound Care</span>
+          <span>/</span>
+          <span style="color: var(--accent-primary);">Support Hub</span>
+        </div>
+        <h1 class="subpage-title">AeroSound <span class="text-gradient">Acoustic Care</span> &amp; Help Desk</h1>
+        <p class="subpage-subtitle">Find fast solutions, firmware updates, diagnostic step-by-steps, or connect with our specialized audio engineering support team.</p>
+
+        <!-- Live Instant Search Bar -->
+        <div class="support-search-wrap">
+          <span class="support-search-icon">🔍</span>
+          <input type="text" id="kb-search-input" class="support-search-input" placeholder="Search firmware, pairing, ANC calibration, warranty, or returns...">
+        </div>
+
+        <!-- Quick Filter Topic Chips -->
+        <div class="quick-topics-row">
+          <button class="topic-chip active" data-filter="all">All Topics</button>
+          <button class="topic-chip" data-filter="pairing">Bluetooth 5.4 Pairing</button>
+          <button class="topic-chip" data-filter="anc">ANC &amp; Soundstage</button>
+          <button class="topic-chip" data-filter="firmware">Firmware v2.4.1</button>
+          <button class="topic-chip" data-filter="battery">Fast Charging</button>
+          <button class="topic-chip" data-filter="warranty">Warranty Claims</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Support Categories Grid -->
+    <section class="support-categories-section">
+      <div class="container">
+        <div class="support-categories-grid" id="categories-grid">
+          
+          <div class="support-cat-card" data-category="pairing">
+            <div class="support-cat-icon">📶</div>
+            <h3>Getting Started &amp; Multipoint</h3>
+            <p>Step-by-step instructions for pairing with 2 devices simultaneously, clearing Bluetooth cache, and switching seamlessly between laptop and phone.</p>
+            <span class="support-cat-link">View 6 Guides →</span>
+          </div>
+
+          <div class="support-cat-card" data-category="firmware">
+            <div class="support-cat-icon">⚡</div>
+            <h3>Firmware v2.4.1 &amp; Downloads</h3>
+            <p>Download the latest AeroSound Desktop DSP Tuner for macOS/Windows, update internal DSP profiles, and flash ultra-low latency gaming firmware.</p>
+            <span class="support-cat-link">Download Firmware (68MB) →</span>
+          </div>
+
+          <div class="support-cat-card" data-category="anc">
+            <div class="support-cat-icon">🛡️</div>
+            <h3>ANC &amp; Acoustic Ear-Seal</h3>
+            <p>Calibrate your fit with the acoustic seal analyzer. Troubleshoot ambient noise bleed, microphonics, or high-frequency wind noise suppression.</p>
+            <span class="support-cat-link">Acoustic Calibration →</span>
+          </div>
+
+          <div class="support-cat-card" data-category="battery">
+            <div class="support-cat-icon">🔋</div>
+            <h3>Battery &amp; Flash Charge Care</h3>
+            <p>Optimize lithium-polymer cell longevity. Understand GaN flash charging protocols, auto-power sleep settings, and wired bypass listening.</p>
+            <span class="support-cat-link">Battery Health Guide →</span>
+          </div>
+
+          <div class="support-cat-card" data-category="warranty">
+            <div class="support-cat-icon">📄</div>
+            <h3>Warranty &amp; Replacement</h3>
+            <p>Activate your included 2-Year International Warranty, order replacement lambskin magnetic cushions, or file an expedited repair request.</p>
+            <span class="support-cat-link">Register Serial Number →</span>
+          </div>
+
+          <div class="support-cat-card" data-category="shipping">
+            <div class="support-cat-icon">📦</div>
+            <h3>Orders, Shipping &amp; Returns</h3>
+            <p>Check Batch 1 reservation status, update your delivery address, or initiate a 30-day risk-free home trial return with prepaid DHL shipping.</p>
+            <span class="support-cat-link">Track Delivery Status →</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Troubleshooting Diagnostics Wizard -->
+    <section class="troubleshooter-section">
+      <div class="container">
+        <div class="section-header" style="text-align: center; margin-bottom: 32px;">
+          <span class="section-tag">HARDWARE DIAGNOSTIC SUITE</span>
+          <h2 class="section-title">Interactive Troubleshooter</h2>
+          <p class="section-subtitle">Select the symptom you are experiencing for an instant diagnostic check.</p>
+        </div>
+
+        <div class="troubleshooter-box">
+          <div class="trouble-step-title">Select Issue Symptom:</div>
+          <div class="symptom-buttons">
+            <button class="symptom-btn active" data-symptom="audio-drop">
+              <span class="sym-icon">🔇</span>
+              <span class="sym-title">Audio Drop / Crackle</span>
+            </button>
+            <button class="symptom-btn" data-symptom="anc-weak">
+              <span class="sym-icon">🌬️</span>
+              <span class="sym-title">ANC Feels Weak</span>
+            </button>
+            <button class="symptom-btn" data-symptom="charging">
+              <span class="sym-icon">🔌</span>
+              <span class="sym-title">Won't Charge Rapidly</span>
+            </button>
+            <button class="symptom-btn" data-symptom="mic-mute">
+              <span class="sym-icon">🎙️</span>
+              <span class="sym-title">Mic Inaudible on Calls</span>
+            </button>
+          </div>
+
+          <div class="trouble-resolution-card" id="diagnostic-output-box">
+            <div class="trouble-res-title" id="diag-title">Diagnosis: Audio Dropout or Latency Artifacts</div>
+            <ol class="trouble-steps-list" id="diag-steps">
+              <li>Check your Bluetooth Codec setting in the AeroSound companion app; if using 990kbps Sony LDAC in crowded RF environments, switch to "Best Effort (Adaptive)".</li>
+              <li>Clear device pairing history by holding the Power and Volume (+) buttons simultaneously for 7 seconds until the LED pulses magenta.</li>
+              <li>Verify that no other high-bandwidth USB 3.0 unshielded hubs are located within 30cm of your Bluetooth transmitter.</li>
+              <li>Test the supplied 3.5mm silver-plated cable to isolate whether the issue is RF interference or the transducer diaphragm.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Frequently Asked Questions -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-header" style="text-align: center; margin-bottom: 40px;">
+          <span class="section-tag">COMMON INQUIRIES</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">Quick answers to common questions about AeroSound Series 3 Pro hardware and policies.</p>
+        </div>
+
+        <div class="faq-container">
+          
+          <div class="faq-item open">
+            <div class="faq-header">
+              <span class="faq-title">How do I pair AeroSound Series 3 with two devices at once (Multipoint)?</span>
+              <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-content">
+              Power on the headphones and hold the pairing button for 3 seconds to connect device #1. Once paired, hold the button again until the LED flashes blue to pair device #2. Both devices remain synchronously linked, automatically handing over priority when a phone call arrives.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-header">
+              <span class="faq-title">Can I listen via USB-C or 3.5mm while the battery is depleted?</span>
+              <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-content">
+              Yes. The 3.5mm input features an analog passive bypass mode that operates with 0% battery power directly from any DAC or studio interface. When connected via USB-C to a PC or Mac, the internal 24-bit/96kHz DAC powers up while simultaneously charging.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-header">
+              <span class="faq-title">What is covered under the 2-Year International Warranty?</span>
+              <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-content">
+              The standard warranty covers 100% of driver voice-coil defects, battery capacity degradation below 80%, ANC microphone calibration drift, and internal PCB failure. We provide doorstep courier pickup and replacement within 48 hours worldwide.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-header">
+              <span class="faq-title">How do I enable 990kbps Hi-Res Sony LDAC streaming?</span>
+              <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-content">
+              On Android 12+, navigate to Settings → Connected Devices → AeroSound Series 3 → toggle on "LDAC High Resolution Audio". In Android Developer Options, ensure Bluetooth Audio LDAC Playback Quality is locked to "Optimized for Audio Quality (990kbps/909kbps)".
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-header">
+              <span class="faq-title">What is the 30-day trial and return policy?</span>
+              <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-content">
+              We offer an unconditional 30-day listening trial. If you are not completely stunned by the beryllium acoustic fidelity or ANC comfort, initiate a return from this support hub for a prepaid return label and 100% refund.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-header">
+              <span class="faq-title">Are the ear cushions replaceable and user-swappable?</span>
+              <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-content">
+              Yes. AeroSound ear cushions feature our patented quad-point neodymium magnetic alignment mechanism. Simply grasp the lambskin ring and pull gently away from the CNC cup to detach. New cushion pairs snap into place in seconds.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Support Ticket Form & Direct Channels -->
+    <section class="ticket-section">
+      <div class="container">
+        <div class="ticket-grid">
+          
+          <!-- Left: Priority Ticket Form -->
+          <div class="ticket-form-card">
+            <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 8px;">Open an Engineering Ticket</h3>
+            <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 24px;">Our specialized acoustic hardware engineers respond within 2 hours during business hours.</p>
+
+            <form id="support-ticket-form">
+              <div class="form-group">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-input" id="ticket-name" placeholder="Devon Vance" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-input" id="ticket-email" placeholder="devon@studio.com" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Product Serial Number (Found on left headband slider)</label>
+                <input type="text" class="form-input" id="ticket-serial" placeholder="AS3-9482-B2" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Inquiry Category</label>
+                <select class="form-select" id="ticket-category">
+                  <option value="technical">Transducer / Audio Quality Diagnosis</option>
+                  <option value="anc">Active Noise Cancellation Calibration</option>
+                  <option value="firmware">Firmware Update Bug Report</option>
+                  <option value="order">Pre-Order Batch 1 Status Inquiry</option>
+                  <option value="warranty">Warranty Replacement Claim</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Detailed Description of Issue</label>
+                <textarea class="form-textarea" id="ticket-desc" placeholder="Describe the symptom, connected audio source, and steps already attempted..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-ticket-submit">
+                📨 Submit Priority Ticket
+              </button>
+            </form>
+          </div>
+
+          <!-- Right: Direct Contact Channels -->
+          <div class="contact-channels-wrap">
+            <div style="margin-bottom: 8px;">
+              <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 8px;">Direct Support Channels</h3>
+              <p style="color: var(--text-secondary); font-size: 0.88rem;">Need immediate assistance? Connect directly with our studio support staff.</p>
+            </div>
+
+            <div class="channel-card">
+              <div class="channel-icon" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">💬</div>
+              <div class="channel-info">
+                <h4>Live Acoustic WebChat</h4>
+                <p>Real-time chat with a certified AeroSound hardware specialist.</p>
+              </div>
+              <span class="channel-status">Online Now</span>
+            </div>
+
+            <div class="channel-card">
+              <div class="channel-icon" style="background: rgba(255, 87, 51, 0.15); color: var(--accent-primary);">✉️</div>
+              <div class="channel-info">
+                <h4>Technical Dispatch Desk</h4>
+                <p>support@aerosound.internal • Avg response 45 mins</p>
+              </div>
+              <span class="channel-status" style="color: var(--accent-blue); background: rgba(56, 189, 248, 0.1);">24/7 Active</span>
+            </div>
+
+            <div class="channel-card">
+              <div class="channel-icon" style="background: rgba(192, 132, 252, 0.15); color: var(--accent-purple);">📞</div>
+              <div class="channel-info">
+                <h4>Global Studio Hotline</h4>
+                <p>+1 (800) AEROSOUND • Mon-Fri 08:00 - 20:00 EST</p>
+              </div>
+              <span class="channel-status" style="color: #fff; background: rgba(255, 255, 255, 0.1);">Toll Free</span>
+            </div>
+
+            <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 20px; margin-top: 10px;">
+              <div style="font-size: 0.82rem; font-weight: 700; color: var(--accent-primary); margin-bottom: 6px;">
+                ★ STUDIO WARRANTY PROMISE
+              </div>
+              <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+                Every AeroSound unit comes with our 2-Year Full Hardware Coverage guarantee. If a hardware fault cannot be resolved remotely, we ship a brand new replacement unit prior to receiving your return.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Ticket Created Confirmation Modal -->
+  <div class="modal-overlay" id="ticket-modal">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="close-ticket-modal">&times;</button>
+      <div style="text-align: center; margin-bottom: 24px;">
+        <div style="font-size: 3rem; margin-bottom: 8px;">📬</div>
+        <h2 style="font-size: 1.5rem; font-weight: 800; color: #fff;">Priority Ticket Dispatched</h2>
+        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 6px;">
+          Your request has been routed to our Lead Acoustic Systems Engineer.
+        </p>
+      </div>
+
+      <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 16px; margin-bottom: 20px;">
+        <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 8px;">
+          <span style="color: var(--text-muted);">TICKET REFERENCE:</span>
+          <strong style="color: var(--accent-primary); font-family: 'JetBrains Mono', monospace;" id="modal-ticket-id">SUP-89241</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 8px;">
+          <span style="color: var(--text-muted);">SUBMITTED BY:</span>
+          <strong style="color: #fff;" id="modal-ticket-name">Devon Vance</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 8px;">
+          <span style="color: var(--text-muted);">SERIAL NUMBER:</span>
+          <strong style="color: var(--accent-blue); font-family: 'JetBrains Mono', monospace;" id="modal-ticket-serial">AS3-9482-B2</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 0.85rem; border-top: 1px solid var(--border-subtle); padding-top: 8px; margin-top: 8px;">
+          <span style="color: var(--text-muted);">ESTIMATED RESPONSE:</span>
+          <strong style="color: #10b981;">Under 90 minutes</strong>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-primary" style="width: 100%; justify-content: center;" id="modal-ok-btn">
+        Done
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="logo-text">Aero<strong>Sound</strong></span>
+        </div>
+        <p class="footer-tagline">Crafted for listeners who demand acoustic perfection.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="index.html">Showcase Home</a>
+        <a href="reviews.html">Verified Reviews</a>
+        <a href="support.html">Customer Support</a>
+        <a href="preorder.html">Pre-Order Reservation</a>
+      </div>
+
+      <div class="footer-copy">
+        &copy; 2026 AeroSound Acoustics Ltd. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Instant Search and Filter for KB Cards
+      const searchInput = document.getElementById('kb-search-input');
+      const topicChips = document.querySelectorAll('.topic-chip');
+      const categoryCards = document.querySelectorAll('.support-cat-card');
+
+      function filterCards(query) {
+        const q = query.toLowerCase().trim();
+        categoryCards.forEach(card => {
+          const text = card.textContent.toLowerCase();
+          const matches = text.includes(q);
+          card.style.display = matches ? 'flex' : 'none';
+        });
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          filterCards(e.target.value);
+        });
+      }
+
+      topicChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          topicChips.forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+
+          const filter = chip.getAttribute('data-filter');
+          if (filter === 'all') {
+            categoryCards.forEach(c => c.style.display = 'flex');
+            if (searchInput) searchInput.value = '';
+          } else {
+            categoryCards.forEach(c => {
+              const cat = c.getAttribute('data-category');
+              c.style.display = (cat === filter) ? 'flex' : 'none';
+            });
+            if (searchInput) searchInput.value = chip.textContent;
+          }
+        });
+      });
+
+      // 2. Hardware Diagnostics Switcher
+      const symptomButtons = document.querySelectorAll('.symptom-btn');
+      const diagTitle = document.getElementById('diag-title');
+      const diagSteps = document.getElementById('diag-steps');
+
+      const diagData = {
+        'audio-drop': {
+          title: 'Diagnosis: Audio Dropout or Latency Artifacts',
+          steps: [
+            'Check your Bluetooth Codec setting in the AeroSound companion app; if using 990kbps Sony LDAC in crowded RF environments, switch to "Best Effort (Adaptive)".',
+            'Clear device pairing history by holding the Power and Volume (+) buttons simultaneously for 7 seconds until the LED pulses magenta.',
+            'Verify that no other high-bandwidth USB 3.0 unshielded hubs are located within 30cm of your Bluetooth transmitter.',
+            'Test the supplied 3.5mm silver-plated cable to isolate whether the issue is RF interference or the transducer diaphragm.'
+          ]
+        },
+        'anc-weak': {
+          title: 'Diagnosis: Reduced Noise Cancellation or Ambient Leak',
+          steps: [
+            'Inspect the outer feedforward microphone apertures on each CNC earcup for lint or debris; clean gently with a dry microfiber cloth.',
+            'Ensure the memory foam cushions create a complete acoustic seal around the ears without eyewear frame gaps.',
+            'Open the AeroSound mobile app and run the "Acoustic Ear Seal Calibration" test to adapt DSP phase inversion to your ear canal volume.',
+            'Toggle through ANC modes: ensure you are in "Adaptive Hybrid ANC" and not "Transparency / Awareness Mode".'
+          ]
+        },
+        'charging': {
+          title: 'Diagnosis: Rapid Charge Not Triggering or Slow Ingestion',
+          steps: [
+            'Verify your USB-C power adapter supports USB Power Delivery (PD 3.0) with at least 20W output.',
+            'Confirm the LED indicator pulses Amber during Flash Charge mode and turns solid Emerald Green when reaching 100%.',
+            'Allow the headphones to reach room temperature (18°C - 24°C); battery thermal protection locks charge current when cold or overheated.',
+            'Use the included GaN-certified 65W braided USB-C cable to eliminate high-resistance voltage drops.'
+          ]
+        },
+        'mic-mute': {
+          title: 'Diagnosis: Microphone Inaudible or Low Input Volume on Calls',
+          steps: [
+            'Ensure AeroSound is selected as both the Output and Input default communication device in Zoom, Teams, or macOS Sound Preferences.',
+            'Verify that the physical hardware mute slider located on the right earcup has not been toggled to the Red position.',
+            'Check that "Voice Isolation Beamforming" is activated in the AeroSound companion application.',
+            'If connected via 3.5mm cable, confirm you are using the TRRS 4-pole adapter rather than a 3-pole TRS TRS studio plug.'
+          ]
+        }
+      };
+
+      symptomButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          symptomButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const key = btn.getAttribute('data-symptom');
+          const data = diagData[key];
+          if (data && diagTitle && diagSteps) {
+            diagTitle.textContent = data.title;
+            diagSteps.innerHTML = data.steps.map(s => `<li>${s}</li>`).join('');
+          }
+        });
+      });
+
+      // 3. FAQ Accordion Click Handler
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const header = item.querySelector('.faq-header');
+        if (header) {
+          header.addEventListener('click', () => {
+            const isOpen = item.classList.contains('open');
+            faqItems.forEach(i => i.classList.remove('open'));
+            if (!isOpen) {
+              item.classList.add('open');
+            }
+          });
+        }
+      });
+
+      // 4. Ticket Submission Form & Modal
+      const ticketForm = document.getElementById('support-ticket-form');
+      const ticketModal = document.getElementById('ticket-modal');
+      const closeTicketModal = document.getElementById('close-ticket-modal');
+      const modalOkBtn = document.getElementById('modal-ok-btn');
+      const modalTicketId = document.getElementById('modal-ticket-id');
+      const modalTicketName = document.getElementById('modal-ticket-name');
+      const modalTicketSerial = document.getElementById('modal-ticket-serial');
+
+      if (ticketForm) {
+        ticketForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('ticket-name').value.trim() || 'Devon Vance';
+          const serial = document.getElementById('ticket-serial').value.trim() || 'AS3-9482-B2';
+          const randomTicket = 'SUP-' + Math.floor(10000 + Math.random() * 90000);
+
+          modalTicketId.textContent = randomTicket;
+          modalTicketName.textContent = name;
+          modalTicketSerial.textContent = serial;
+
+          ticketModal.classList.add('active');
+          ticketForm.reset();
+        });
+      }
+
+      if (closeTicketModal) {
+        closeTicketModal.addEventListener('click', () => {
+          ticketModal.classList.remove('active');
+        });
+      }
+
+      if (modalOkBtn) {
+        modalOkBtn.addEventListener('click', () => {
+          ticketModal.classList.remove('active');
+        });
+      }
+
+      window.addEventListener('click', (e) => {
+        if (e.target === ticketModal) {
+          ticketModal.classList.remove('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

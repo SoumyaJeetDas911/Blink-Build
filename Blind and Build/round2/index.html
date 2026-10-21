@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velox Finance — Next-Gen Cross-Border Treasury</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Glow Blobs -->
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+
+  <!-- Header -->
+  <header class="navbar" id="velox-nav">
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <div class="brand-symbol">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
+        <span class="brand-name">Velox<strong>Pay</strong></span>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="#features" class="nav-item">Features</a>
+        <a href="#specs" class="nav-item">Specifications</a>
+        <a href="#ledger" class="nav-item">Treasury Ledger</a>
+        <a href="#pricing" class="nav-item">Pricing</a>
+        <a href="#faq" class="nav-item">FAQ</a>
+      </nav>
+
+      <div class="nav-buttons">
+        <a href="login.html" class="btn-text">Sign In</a>
+        <a href="signup.html" class="btn btn-glow">Open Account</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <!-- Left Column -->
+        <div class="hero-left">
+          <div class="announcement-pill">
+            <span class="pill-spark">NEW</span>
+            <span>Multi-Currency IBANs are now live</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
+
+          <h1 class="hero-title">
+            Global payouts at the speed of <span class="gradient-text">pure light.</span>
+          </h1>
+
+          <p class="hero-desc">
+            Settle cross-border payments in 140+ currencies with real-time FX rates, zero hidden intermediary fees, and automated compliance.
+          </p>
+
+          <!-- Interactive Currency Calculator Widget -->
+          <div class="currency-converter" id="currency-widget">
+            <div class="calc-row">
+              <div class="calc-field">
+                <label>You send</label>
+                <div class="input-group">
+                  <span class="currency-symbol">$</span>
+                  <input type="number" id="send-amount" value="5000" min="100" step="100">
+                </div>
+              </div>
+              <div class="currency-selector">
+                <span class="flag-icon">🇺🇸</span>
+                <strong>USD</strong>
+              </div>
+            </div>
+
+            <div class="calc-divider">
+              <div class="rate-badge">
+                <span class="pulse-indicator"></span>
+                <span>1 USD = 0.924 EUR (Real-time mid-market)</span>
+              </div>
+            </div>
+
+            <div class="calc-row">
+              <div class="calc-field">
+                <label>Recipient gets</label>
+                <div class="input-group">
+                  <span class="currency-symbol">€</span>
+                  <input type="text" id="receive-amount" value="4,620.00" readonly>
+                </div>
+              </div>
+              <div class="currency-selector">
+                <span class="flag-icon">🇪🇺</span>
+                <strong>EUR</strong>
+              </div>
+            </div>
+
+            <div class="calc-footer">
+              <span class="fee-text">Estimated savings: <strong>$184.50</strong> vs standard banks</span>
+              <button class="btn btn-primary btn-calc">Transfer Now</button>
+            </div>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="trust-row">
+            <span class="trust-label">TRUSTED BY INNOVATORS:</span>
+            <div class="partner-logos">
+              <span>SUPABASE</span>
+              <span>LINEAR</span>
+              <span>VERCEL</span>
+              <span>RAYCAST</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Glassmorphic Floating Cards & Micro-widgets -->
+        <div class="hero-right">
+          <div class="card-scene">
+            <!-- Floating Main Glass Credit Card -->
+            <div class="glass-card" id="main-credit-card">
+              <div class="card-chip-row">
+                <div class="emv-chip"></div>
+                <div class="card-contactless">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M8.5 16.5a5 5 0 0 1 0-9M12 20a9 9 0 0 0 0-16M15.5 23a13 13 0 0 0 0-22"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="card-number">•••• •••• •••• 8842</div>
+              <div class="card-details">
+                <div>
+                  <div class="card-label">CARDHOLDER</div>
+                  <div class="card-val">ALEXANDRA CHEN</div>
+                </div>
+                <div>
+                  <div class="card-label">EXPIRES</div>
+                  <div class="card-val">09/29</div>
+                </div>
+                <div class="card-network">VELOX</div>
+              </div>
+            </div>
+
+            <!-- Floating Notification Badge 1 -->
+            <div class="floating-widget widget-top">
+              <div class="widget-icon icon-success">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+              </div>
+              <div class="widget-content">
+                <div class="widget-title">Payment Received</div>
+                <div class="widget-sub">+$14,850.00 from Stripe US</div>
+              </div>
+              <span class="widget-time">Just now</span>
+            </div>
+
+            <!-- Floating Security Badge 2 -->
+            <div class="floating-widget widget-bottom">
+              <div class="widget-icon icon-shield">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <div class="widget-content">
+                <div class="widget-title">Vault Security</div>
+                <div class="widget-sub">SOC2 Type II & 256-bit AES</div>
+              </div>
+              <span class="badge-status">100% SECURE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metrics Ribbon -->
+    <section class="metrics-ribbon">
+      <div class="container ribbon-grid">
+        <div class="ribbon-item">
+          <div class="ribbon-num">$42.8B+</div>
+          <div class="ribbon-label">Annual Volume Processed</div>
+        </div>
+        <div class="ribbon-item">
+          <div class="ribbon-num">99.995%</div>
+          <div class="ribbon-label">Core Infrastructure Uptime</div>
+        </div>
+        <div class="ribbon-item">
+          <div class="ribbon-num">&lt; 3 Sec</div>
+          <div class="ribbon-label">Avg Global Settlement Time</div>
+        </div>
+        <div class="ribbon-item">
+          <div class="ribbon-num">140+</div>
+          <div class="ribbon-label">Supported Currencies</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bento Grid Features Section -->
+    <section class="bento-section" id="features">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="tag-label">MODULAR TREASURY ARCHITECTURE</span>
+          <h2 class="title-lg">Everything modern finance teams require</h2>
+          <p class="subtitle">Engineered as an autonomous treasury layer with zero friction and instant programmable settlements.</p>
+        </div>
+
+        <div class="bento-grid">
+          <!-- Bento 1: Smart Rail Routing (Wide 2-col) -->
+          <div class="bento-card bento-wide">
+            <div class="bento-header">
+              <div class="bento-icon-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <span class="bento-tag">AUTONOMOUS ROUTING</span>
+            </div>
+            <div class="bento-content">
+              <h3>Direct-to-Bank Algorithmic Clearing</h3>
+              <p>Our intelligent routing engine bypasses traditional correspondent banking hops, cutting multi-day delays down to sub-second localized ledger commits.</p>
+              
+              <!-- Visual Rail Comparison Bar -->
+              <div class="rail-comparison">
+                <div class="rail-row">
+                  <span class="rail-name">Traditional SWIFT Rail</span>
+                  <div class="rail-bar-track">
+                    <div class="rail-bar-fill legacy" id="swift-bar-fill" style="width: 85%;"></div>
+                  </div>
+                  <span class="rail-time text-dim" id="swift-time-text">48–72 Hours</span>
+                </div>
+                <div class="rail-row">
+                  <span class="rail-name">Velox Direct Rail</span>
+                  <div class="rail-bar-track">
+                    <div class="rail-bar-fill velox" id="velox-bar-fill" style="width: 15%;"></div>
+                  </div>
+                  <span class="rail-time text-cyan" id="velox-time-text">1.8 Seconds (Instant)</span>
+                </div>
+              </div>
+
+              <div class="bento-action-row">
+                <button class="btn btn-sm btn-outline" id="benchmark-rail-btn">⚡ Run Live Speed Benchmark</button>
+                <span class="bench-feedback" id="bench-feedback-text">Engine: Algorithmic Routing Active</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento 2: Virtual Card Customizer (Interactive) -->
+          <div class="bento-card">
+            <div class="bento-header">
+              <div class="bento-icon-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                  <line x1="1" y1="10" x2="23" y2="10"/>
+                </svg>
+              </div>
+              <span class="bento-tag">PROGRAMMABLE CARDS</span>
+            </div>
+            <div class="bento-content">
+              <h3>Spend Limits &amp; Virtual Cards</h3>
+              <p>Issue instant multi-currency employee debit cards with spend controls.</p>
+              
+              <!-- Mini Interactive Card Theme Switcher -->
+              <div class="mini-card-preview" id="interactive-mini-card">
+                <div class="mini-card-head">
+                  <span class="mini-chip"></span>
+                  <span class="mini-card-status" id="mini-card-status-badge">ACTIVE</span>
+                  <span class="mini-logo">VELOX</span>
+                </div>
+                <div class="mini-card-num" id="mini-card-num-text">•••• •••• •••• 4920</div>
+                <div class="mini-card-bottom">
+                  <div class="mini-card-name" id="card-edition-name">Obsidian Black</div>
+                  <div class="mini-card-cvv">CVV: <span id="card-cvv-val">•••</span></div>
+                </div>
+              </div>
+
+              <div class="card-controls-row">
+                <div class="card-color-picker">
+                  <span class="color-picker-label">Edition:</span>
+                  <button class="card-swatch active" data-color="obsidian" data-name="Obsidian Black" title="Obsidian Black" style="background:#0c0f17;"></button>
+                  <button class="card-swatch" data-color="cyan" data-name="Electric Cyan" title="Electric Cyan" style="background:#00f0ff;"></button>
+                  <button class="card-swatch" data-color="emerald" data-name="Emerald Mint" title="Emerald Mint" style="background:#10b981;"></button>
+                  <button class="card-swatch" data-color="purple" data-name="Royal Amethyst" title="Royal Amethyst" style="background:#8b5cf6;"></button>
+                </div>
+                
+                <div class="card-action-btns">
+                  <button class="btn-micro" id="freeze-card-btn">❄️ Freeze Card</button>
+                  <button class="btn-micro" id="reveal-cvv-btn">👁️ Reveal CVV</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento 3: Instant Virtual IBAN Generator (Interactive) -->
+          <div class="bento-card">
+            <div class="bento-header">
+              <div class="bento-icon-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M15 10v11M12 2L2 7h20L12 2z"/>
+                </svg>
+              </div>
+              <span class="bento-tag">LOCALIZED RECEIVING</span>
+            </div>
+            <div class="bento-content">
+              <h3>Instant Virtual IBAN Vault</h3>
+              <p>Generate local bank coordinates in 30+ jurisdictions instantly.</p>
+              
+              <div class="iban-generator-widget">
+                <div class="country-tabs">
+                  <button class="c-tab active" data-country="DE" data-iban="DE89 3704 0044 0532 0130 00" data-bank="Deutsche Bundesbank Rail">🇩🇪 DE</button>
+                  <button class="c-tab" data-country="GB" data-iban="GB29 NWBK 6016 1331 9268 19" data-bank="Barclays ClearBank (Sort 60-16-13)">🇬🇧 UK</button>
+                  <button class="c-tab" data-country="US" data-iban="Routing: 026009593 • Acc: 894120842" data-bank="JPMorgan FedLine ACH">🇺🇸 US</button>
+                  <button class="c-tab" data-country="SG" data-iban="SG78 DBSS 0039 0128 4091 22" data-bank="DBS FAST Corridor">🇸🇬 SG</button>
+                </div>
+                <div class="iban-output-box">
+                  <div class="iban-meta" id="iban-bank-name">Deutsche Bundesbank Rail</div>
+                  <div class="iban-code" id="iban-display">DE89 3704 0044 0532 0130 00</div>
+                  <div class="iban-actions">
+                    <button class="copy-iban-btn" id="copy-iban-btn">Copy Coordinates</button>
+                    <button class="btn-micro" id="generate-fresh-iban-btn">🔄 Generate New Sub-Account</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento 4: Tax & Compliance (Wide 2-col) -->
+          <div class="bento-card bento-wide">
+            <div class="bento-header">
+              <div class="bento-icon-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                  <polyline points="10 9 9 9 8 9"/>
+                </svg>
+              </div>
+              <span class="bento-tag">TAX &amp; VAT AUTOMATION</span>
+            </div>
+            <div class="bento-content">
+              <h3>Automated VAT Reverse Charge &amp; Withholding</h3>
+              <p>Eliminate cross-border tax compliance headaches. Every outgoing transaction is cross-checked against bilateral tax treaties and localized withholding obligations in real time.</p>
+              
+              <div class="compliance-checklist" id="compliance-checklist">
+                <div class="chk-item active" data-rule="irs"><span class="chk-dot">✓</span> 1099-NEC &amp; 1042-S automated IRS filings</div>
+                <div class="chk-item active" data-rule="vat"><span class="chk-dot">✓</span> EU VAT MOSS (Mini One Stop Shop) sync</div>
+                <div class="chk-item active" data-rule="ofac"><span class="chk-dot">✓</span> Automated AML &amp; OFAC sanctions screening</div>
+                <div class="chk-item active" data-rule="gdpr"><span class="chk-dot">✓</span> GDPR Article 28 Data Custody Guarantee</div>
+              </div>
+
+              <div class="compliance-score-bar">
+                <span>COMPLIANCE POSTURE:</span>
+                <strong class="text-emerald" id="compliance-score-text">100% Audit Ready (4/4 Verifications Active)</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Workable Infrastructure Specifications Section -->
+    <section class="specs-section" id="specs">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="tag-label">CLEARING ARCHITECTURE</span>
+          <h2 class="title-lg">Technical &amp; Clearing Specifications</h2>
+          <p class="subtitle">Complete technical rails, encryption standards, and ISO 20022 schemas for treasury developers.</p>
+
+          <!-- Category Filter Tabs -->
+          <div class="specs-tab-bar">
+            <button class="spec-tab active" data-category="rails">Clearing Rails &amp; SLA</button>
+            <button class="spec-tab" data-category="security">Cryptographic Security</button>
+            <button class="spec-tab" data-category="api">API Limits &amp; Idempotency</button>
+            <button class="spec-tab" data-category="iso">ISO 20022 Data Models</button>
+          </div>
+        </div>
+
+        <!-- Dynamic Spec Grid Container -->
+        <div class="specs-grid" id="round2-specs-container">
+          <!-- Default: Rails Category -->
+          <div class="spec-card">
+            <span class="spec-label">SETTLEMENT ENGINE</span>
+            <div class="spec-value">Direct RTGS &amp; FedNow API</div>
+            <p class="spec-detail">Sub-second atomic commitment across bilateral settlement corridors with zero intermediary banking delays.</p>
+          </div>
+          <div class="spec-card">
+            <span class="spec-label">MAX SINGLE TICKET SIZE</span>
+            <div class="spec-value">$5,000,000.00 / txn</div>
+            <p class="spec-detail">Dynamic liquidity pooling through Tier-1 bank syndicates with instant pre-funded balance verification.</p>
+          </div>
+          <div class="spec-card">
+            <span class="spec-label">CLEARING WINDOW</span>
+            <div class="spec-value">24 / 7 / 365 Continuous</div>
+            <p class="spec-detail">Zero weekend freeze windows or bank holiday freezes across European SEPA and US FedNow corridors.</p>
+          </div>
+          <div class="spec-card">
+            <span class="spec-label">FX LIQUIDITY SPREAD</span>
+            <div class="spec-value">0.12% – 0.25% Fixed</div>
+            <p class="spec-detail">Direct wholesale institutional mid-market rates with transparent, pre-negotiated tier discounts.</p>
+          </div>
+        </div>
+
+        <!-- Interactive ISO 20022 JSON / XML Payload Inspector -->
+        <div class="payload-inspector-card">
+          <div class="payload-header">
+            <div class="payload-title-wrap">
+              <span class="payload-tag">ISO 20022 SPECIFICATION</span>
+              <h3>Clearing Rail Message Schema</h3>
+              <p>Select a payment rail to inspect exact settlement message formats and technical parameters.</p>
+            </div>
+            
+            <div class="rail-picker-tabs">
+              <button class="rail-picker-btn active" data-rail="sepa">SEPA Instant (pacs.008)</button>
+              <button class="rail-picker-btn" data-rail="fednow">FedNow API (Direct)</button>
+              <button class="rail-picker-btn" data-rail="fps">UK Faster Payments</button>
+              <button class="rail-picker-btn" data-rail="swift">SWIFT GPI (MT103)</button>
+            </div>
+          </div>
+
+          <div class="payload-body-grid">
+            <div class="payload-specs-panel" id="rail-specs-panel">
+              <div class="spec-mini-item">
+                <span class="mini-label">PROTOCOL STANDARD:</span>
+                <strong class="text-cyan" id="rail-proto-val">ISO 20022 (pacs.008.001.08)</strong>
+              </div>
+              <div class="spec-mini-item">
+                <span class="mini-label">SETTLEMENT SPEED:</span>
+                <strong class="text-emerald" id="rail-speed-val">0.82 Seconds (Final)</strong>
+              </div>
+              <div class="spec-mini-item">
+                <span class="mini-label">TRANSACTION LIMIT:</span>
+                <strong id="rail-limit-val">€100,000 / Transfer</strong>
+              </div>
+              <div class="spec-mini-item">
+                <span class="mini-label">IDEMPOTENCY TIMEOUT:</span>
+                <strong id="rail-idemp-val">72 Hours Guaranteed</strong>
+              </div>
+            </div>
+
+            <div class="payload-code-viewer">
+              <div class="code-head">
+                <span class="code-label" id="payload-filename">sepa_instant_transfer.json</span>
+                <button class="copy-payload-btn" id="copy-payload-btn">Copy Payload</button>
+              </div>
+              <pre class="json-code" id="payload-code-display"><code>{
+  "message_id": "MSG-2026-VELOX-0918",
+  "settlement_rail": "SEPA_INSTANT",
+  "creditor_iban": "DE89370400440532013000",
+  "debtor_account": "ACC_CORP_894120",
+  "instructed_amount": {
+    "currency": "EUR",
+    "value": 45200.00
+  },
+  "charge_bearer": "SLEV",
+  "purpose_code": "TREASURY_TRANSFER",
+  "idempotency_key": "idem_8f912a_b0c"
+}</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Real-time Treasury Ledger Table Section -->
+    <section class="ledger-section" id="ledger">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="tag-label">TRANSPARENT RECONCILIATION</span>
+          <h2 class="title-lg">Live Cross-Border Liquidity Rails</h2>
+          <p class="subtitle">Monitor real-time ledger settlement events across global liquidity corridors.</p>
+        </div>
+
+        <div class="ledger-card">
+          <!-- Ledger Controls Bar -->
+          <div class="ledger-toolbar">
+            <div class="filter-pills">
+              <button class="tbl-filter active" data-filter="all">All Settlements (6)</button>
+              <button class="tbl-filter" data-filter="completed">Completed</button>
+              <button class="tbl-filter" data-filter="settling">Settling</button>
+            </div>
+
+            <div class="ledger-search">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+              <input type="text" id="tx-search-input" placeholder="Search counterparty or ID...">
+            </div>
+
+            <button class="btn btn-sm btn-outline" id="simulate-tx-btn">+ Simulate Payout</button>
+          </div>
+
+          <!-- Table -->
+          <div class="table-responsive">
+            <table class="ledger-table" id="tx-table">
+              <thead>
+                <tr>
+                  <th>TRANSACTION ID</th>
+                  <th>RECIPIENT &amp; COUNTRY</th>
+                  <th>CLEARING RAIL</th>
+                  <th>AMOUNT</th>
+                  <th>EFFECTIVE FX</th>
+                  <th>STATUS</th>
+                </tr>
+              </thead>
+              <tbody id="tx-tbody">
+                <tr data-status="completed">
+                  <td class="font-mono text-cyan">TX-982410-EU</td>
+                  <td>
+                    <div class="cell-entity">
+                      <span class="flag-circle">🇩🇪</span>
+                      <div><strong>N26 Enterprise GmbH</strong><span class="cell-sub">Berlin, Germany</span></div>
+                    </div>
+                  </td>
+                  <td><span class="rail-tag">SEPA Instant</span></td>
+                  <td><strong class="text-white">€45,200.00</strong></td>
+                  <td class="font-mono text-dim">1.0842 USD</td>
+                  <td><span class="status-pill status-success"><span class="dot"></span> Completed</span></td>
+                </tr>
+                <tr data-status="completed">
+                  <td class="font-mono text-cyan">TX-982409-US</td>
+                  <td>
+                    <div class="cell-entity">
+                      <span class="flag-circle">🇺🇸</span>
+                      <div><strong>Supabase Inc.</strong><span class="cell-sub">San Francisco, CA</span></div>
+                    </div>
+                  </td>
+                  <td><span class="rail-tag">FedNow Rail</span></td>
+                  <td><strong class="text-white">$120,000.00</strong></td>
+                  <td class="font-mono text-dim">1.0000 USD</td>
+                  <td><span class="status-pill status-success"><span class="dot"></span> Completed</span></td>
+                </tr>
+                <tr data-status="settling">
+                  <td class="font-mono text-cyan">TX-982408-UK</td>
+                  <td>
+                    <div class="cell-entity">
+                      <span class="flag-circle">🇬🇧</span>
+                      <div><strong>Monzo Bank Ltd.</strong><span class="cell-sub">London, UK</span></div>
+                    </div>
+                  </td>
+                  <td><span class="rail-tag">FPS Direct</span></td>
+                  <td><strong class="text-white">£18,500.00</strong></td>
+                  <td class="font-mono text-dim">1.2710 USD</td>
+                  <td><span class="status-pill status-pending"><span class="dot pulse"></span> Settling (1.2s)</span></td>
+                </tr>
+                <tr data-status="completed">
+                  <td class="font-mono text-cyan">TX-982407-SG</td>
+                  <td>
+                    <div class="cell-entity">
+                      <span class="flag-circle">🇸🇬</span>
+                      <div><strong>Grab Holdings Inc.</strong><span class="cell-sub">Marina One, Singapore</span></div>
+                    </div>
+                  </td>
+                  <td><span class="rail-tag">FAST Rail</span></td>
+                  <td><strong class="text-white">S$62,800.00</strong></td>
+                  <td class="font-mono text-dim">0.7420 USD</td>
+                  <td><span class="status-pill status-success"><span class="dot"></span> Completed</span></td>
+                </tr>
+                <tr data-status="settling">
+                  <td class="font-mono text-cyan">TX-982406-JP</td>
+                  <td>
+                    <div class="cell-entity">
+                      <span class="flag-circle">🇯🇵</span>
+                      <div><strong>Rakuten Group Inc.</strong><span class="cell-sub">Tokyo, Japan</span></div>
+                    </div>
+                  </td>
+                  <td><span class="rail-tag">Zengin Direct</span></td>
+                  <td><strong class="text-white">¥8,400,000</strong></td>
+                  <td class="font-mono text-dim">0.0066 USD</td>
+                  <td><span class="status-pill status-pending"><span class="dot pulse"></span> Settling (2.4s)</span></td>
+                </tr>
+                <tr data-status="completed">
+                  <td class="font-mono text-cyan">TX-982405-AU</td>
+                  <td>
+                    <div class="cell-entity">
+                      <span class="flag-circle">🇦🇺</span>
+                      <div><strong>Atlassian Corp.</strong><span class="cell-sub">Sydney, Australia</span></div>
+                    </div>
+                  </td>
+                  <td><span class="rail-tag">NPP Osko</span></td>
+                  <td><strong class="text-white">A$34,100.00</strong></td>
+                  <td class="font-mono text-dim">0.6580 USD</td>
+                  <td><span class="status-pill status-success"><span class="dot"></span> Completed</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Global Speed Corridors Benchmark Section -->
+    <section class="corridors-section" id="corridors">
+      <div class="container">
+        <div class="corridor-card">
+          <div class="corridor-info">
+            <span class="tag-label">GLOBAL CLEARING PERFORMANCE</span>
+            <h2 class="title-md">Benchmark settlement corridors</h2>
+            <p class="subtitle">Real-time latency metrics between primary financial capitals.</p>
+            
+            <div class="corridor-selector">
+              <button class="corridor-tab active" data-corridor="us-eu">New York ⇄ Frankfurt</button>
+              <button class="corridor-tab" data-corridor="uk-sg">London ⇄ Singapore</button>
+              <button class="corridor-tab" data-corridor="jp-au">Tokyo ⇄ Sydney</button>
+            </div>
+          </div>
+
+          <div class="corridor-stats-box">
+            <div class="stat-highlight">
+              <div class="stat-num text-cyan" id="corridor-latency">0.82s</div>
+              <div class="stat-desc">End-to-End Ledger Finality</div>
+            </div>
+            <div class="stat-highlight">
+              <div class="stat-num text-emerald" id="corridor-savings">84.2%</div>
+              <div class="stat-desc">FX Spread Savings vs Interbank</div>
+            </div>
+            <div class="stat-highlight">
+              <div class="stat-num text-white" id="corridor-fee">0.12%</div>
+              <div class="stat-desc">Fixed Flat Clearing Cost</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Pricing Matrix Section -->
+    <section class="pricing" id="pricing">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="tag-label">TRANSPARENT VALUE</span>
+          <h2 class="title-lg">Predictable pricing for every stage</h2>
+          <p class="subtitle">No hidden transaction markups. Cancel or upgrade anytime.</p>
+
+          <!-- Monthly / Annual Toggle Switch -->
+          <div class="billing-toggle">
+            <span class="toggle-label" id="monthly-label">Billed Monthly</span>
+            <button class="toggle-switch" id="billing-btn" aria-label="Toggle billing frequency" aria-pressed="false">
+              <span class="switch-thumb"></span>
+            </button>
+            <span class="toggle-label active" id="annual-label">
+              Billed Annually
+              <span class="discount-badge">SAVE 25%</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- 3 Tier Pricing Cards -->
+        <div class="pricing-grid">
+          <!-- Card 1: Starter -->
+          <div class="pricing-card" id="plan-starter">
+            <div class="plan-header">
+              <h3 class="plan-name">Starter</h3>
+              <p class="plan-desc">For early-stage startups and small remote teams.</p>
+              <div class="price-box">
+                <span class="price-currency">$</span>
+                <span class="price-amount" data-monthly="0" data-annual="0">0</span>
+                <span class="price-period">/mo</span>
+              </div>
+            </div>
+            <ul class="feature-list">
+              <li><span class="chk">✓</span> Up to 5 foreign currency accounts</li>
+              <li><span class="chk">✓</span> 0.35% standard FX fee</li>
+              <li><span class="chk">✓</span> Virtual debit cards for team</li>
+              <li class="disabled"><span class="chk">✕</span> Dedicated account manager</li>
+            </ul>
+            <a href="signup.html?plan=starter" class="btn btn-secondary btn-block">Get Started Free</a>
+          </div>
+
+          <!-- Card 2: Growth (Featured with Gradient Border) -->
+          <div class="pricing-card featured" id="plan-growth">
+            <div class="popular-ribbon">MOST POPULAR</div>
+            <div class="plan-header">
+              <h3 class="plan-name">Growth</h3>
+              <p class="plan-desc">For scaling companies with global suppliers and contractors.</p>
+              <div class="price-box">
+                <span class="price-currency">$</span>
+                <span class="price-amount" data-monthly="49" data-annual="36">36</span>
+                <span class="price-period">/mo</span>
+              </div>
+            </div>
+            <ul class="feature-list">
+              <li><span class="chk">✓</span> Unlimited foreign currency accounts</li>
+              <li><span class="chk">✓</span> 0.15% competitive FX fee</li>
+              <li><span class="chk">✓</span> Automated batch payroll API</li>
+              <li><span class="chk">✓</span> Priority 24/7 routing & live support</li>
+            </ul>
+            <a href="signup.html?plan=growth" class="btn btn-primary btn-block">Start 14-Day Free Trial</a>
+          </div>
+
+          <!-- Card 3: Enterprise -->
+          <div class="pricing-card" id="plan-enterprise">
+            <div class="plan-header">
+              <h3 class="plan-name">Enterprise</h3>
+              <p class="plan-desc">For high-volume operations requiring custom treasury workflows.</p>
+              <div class="price-box">
+                <span class="price-currency">$</span>
+                <span class="price-amount" data-monthly="199" data-annual="149">149</span>
+                <span class="price-period">/mo</span>
+              </div>
+            </div>
+            <ul class="feature-list">
+              <li><span class="chk">✓</span> Custom wholesale FX liquidity spreads</li>
+              <li><span class="chk">✓</span> Dedicated compliance officer</li>
+              <li><span class="chk">✓</span> Bespoke ERP & NetSuite sync</li>
+              <li><span class="chk">✓</span> 99.99% custom SLA guarantee</li>
+            </ul>
+            <a href="signup.html?plan=enterprise" class="btn btn-secondary btn-block">Contact Treasury Team</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive FAQ Accordion Section -->
+    <section class="faq-section" id="faq">
+      <div class="container max-w-800">
+        <div class="section-title-wrap">
+          <span class="tag-label">CLEAR ANSWERS</span>
+          <h2 class="title-lg">Frequently Asked Questions</h2>
+          <p class="subtitle">Everything you need to know about custody, regulatory licensing, and clearing rails.</p>
+        </div>
+
+        <div class="accordion" id="faq-accordion">
+          <!-- FAQ 1 -->
+          <div class="accordion-item active">
+            <button class="accordion-head" aria-expanded="true">
+              <span>How does Velox eliminate traditional FX exchange markups?</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Standard retail and commercial banks embed 2% to 4% hidden markups inside their FX rates. Velox accesses real-time institutional wholesale interbank order books directly, passing true mid-market rates to customers with a transparent, fixed micro-spread as low as 0.15%.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="accordion-item">
+            <button class="accordion-head" aria-expanded="false">
+              <span>Are customer treasury funds insured and segregated?</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Yes. 100% of customer deposits are safeguarded under Tier-1 regulated custodian partner banks (including Deutsche Bank and JPMorgan Chase). Funds are legally ring-fenced and never loaned out or utilized for speculative proprietary trading.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="accordion-item">
+            <button class="accordion-head" aria-expanded="false">
+              <span>How quickly can our engineering team integrate the Payout API?</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Most development teams complete sandbox testing in less than an afternoon. We provide pre-built SDKs for Node.js, Python, Go, and Ruby, complete with webhooks for real-time settlement status push notifications.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="accordion-item">
+            <button class="accordion-head" aria-expanded="false">
+              <span>Do you support payouts during local banking holidays and weekends?</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-body">
+              <p>Yes. By utilizing 24/7 instant settlement rails such as SEPA Instant in Europe, FedNow in the United States, and FAST in Singapore, our network settles payments round-the-clock, 365 days a year without weekend freeze windows.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Regulatory Trust Strip -->
+    <section class="trust-strip">
+      <div class="container">
+        <div class="trust-strip-inner">
+          <div class="trust-badge-item">
+            <span class="trust-icon">🛡️</span>
+            <div><strong>SOC-2 Type II</strong> Certified</div>
+          </div>
+          <div class="trust-badge-item">
+            <span class="trust-icon">🔒</span>
+            <div><strong>PCI-DSS Level 1</strong> Compliant</div>
+          </div>
+          <div class="trust-badge-item">
+            <span class="trust-icon">🏛️</span>
+            <div><strong>FinCEN MSB</strong> Registered</div>
+          </div>
+          <div class="trust-badge-item">
+            <span class="trust-icon">⚡</span>
+            <div><strong>ISO/IEC 27001</strong> Security Architecture</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-wrapper">
+      <div class="footer-col brand-info">
+        <div class="brand">
+          <div class="brand-symbol">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </div>
+          <span class="brand-name">Velox<strong>Pay</strong></span>
+        </div>
+        <p>The sovereign cross-border payments protocol for modern global enterprise.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product &amp; Access</h4>
+        <a href="login.html">Sign In (Treasury Console)</a>
+        <a href="signup.html">Open Sovereign Account</a>
+        <a href="#ledger">Treasury Ledger</a>
+        <a href="#specs">Settlement Specs</a>
+      </div>
+      <div class="footer-col">
+        <h4>Compliance</h4>
+        <a href="#specs">ISO 20022 Clearing</a>
+        <a href="#">SOC2 Reports</a>
+        <a href="#">PCI-DSS Certified</a>
+        <a href="#">GDPR &amp; Privacy</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect &amp; Docs</h4>
+        <a href="signup.html?plan=enterprise">Contact Treasury Team</a>
+        <a href="#">Developer Docs</a>
+        <a href="#">API Status: Operational</a>
+        <a href="#">GitHub Integration</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

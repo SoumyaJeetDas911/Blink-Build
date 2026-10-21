@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLIND & BUILD ARENA 2026 — Master Event Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="hub.css">
+</head>
+
+<body>
+  <!-- Master Control Header -->
+  <header class="master-header">
+    <div class="header-left">
+      <div class="arena-logo">
+        <span class="arena-icon">⚡</span>
+        <div class="logo-copy">
+          <span class="logo-title">BLIND & BUILD <strong>ARENA</strong></span>
+          <span class="logo-sub">OFFICIAL CODE RECREATION PLATFORM</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Central Round Selector Tabs -->
+    <div class="round-nav">
+      <button class="round-btn active" data-round="1" id="tab-round-1">
+        <span class="r-badge easy">R1 • EASY</span>
+        <span class="r-name">AeroSound</span>
+      </button>
+
+      <button class="round-btn" data-round="2" id="tab-round-2">
+        <span class="r-badge medium">R2 • MEDIUM</span>
+        <span class="r-name">VeloxPay</span>
+      </button>
+
+      <button class="round-btn" data-round="3" id="tab-round-3">
+        <span class="r-badge hard">R3 • HARD</span>
+        <span class="r-name">Nexus Quantum</span>
+      </button>
+
+      <button class="round-btn judge-tab" id="tab-judge">
+        <span class="r-badge judge">⚖️ JUDGING</span>
+        <span class="r-name">Diff Tool</span>
+      </button>
+    </div>
+
+    <div class="header-right">
+      <button class="btn btn-sm btn-outline" id="rules-btn">📋 Event Rules</button>
+      <button class="btn btn-sm btn-outline" id="specs-btn">🎨 Specs & Palette</button>
+      <a href="round1/index.html" target="_blank" class="btn btn-sm btn-primary" id="open-target-btn">
+        Open Standalone ↗
+      </a>
+    </div>
+  </header>
+
+  <!-- Live Arena Main Stage -->
+  <main class="arena-main">
+    <!-- Event Control Bar (Timer & Phase Controller) -->
+    <section class="controller-bar" id="control-panel">
+      <div class="stage-info">
+        <div class="round-pill" id="current-round-pill">ROUND 1: EASY</div>
+        <h2 class="round-heading" id="current-round-title">AeroSound — Acoustic Hardware Showcase</h2>
+      </div>
+
+      <!-- Integrated Event Timer -->
+      <div class="timer-module">
+        <div class="timer-mode-selector">
+          <button class="mode-tag active" data-mode="observe" id="mode-observe-btn">👁️ Preview Phase (30s)</button>
+          <button class="mode-tag" data-mode="build" id="mode-build-btn">💻 Build Phase (30m)</button>
+        </div>
+
+        <div class="timer-display" id="timer-box">
+          <span class="time-readout" id="time-display">00:30</span>
+          <span class="time-phase-label" id="phase-label">PREVIEW TIME REMAINING</span>
+        </div>
+
+        <div class="timer-controls">
+          <button class="btn-ctrl start" id="timer-toggle-btn">Start Timer</button>
+          <button class="btn-ctrl reset" id="timer-reset-btn">Reset</button>
+          <button class="btn-ctrl" id="blind-toggle-btn" title="Toggle blindfold veil manually">🕶️ Hide Screen</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Viewport (Target Website Iframe & Blindfold Overlay) -->
+    <section class="viewport-wrapper" id="stage-viewport">
+      <div class="viewport-header">
+        <div class="browser-dots">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <div class="browser-url-bar">
+          <span class="ssl-icon">🔒</span>
+          <span class="url-text" id="target-url-label">https://arena.internal/round1/index.html</span>
+        </div>
+        <div class="viewport-actions">
+          <button class="vp-btn" id="reload-iframe-btn" title="Reload Target Page">🔄</button>
+          <button class="vp-btn" id="fullscreen-btn" title="Fullscreen Presentation Mode">⛶</button>
+        </div>
+      </div>
+
+      <div class="iframe-container" id="iframe-box">
+        <iframe src="round1/index.html" id="target-frame" title="Target Website Viewport"></iframe>
+
+        <!-- The Blind Screen Mask (Appears when timer ends or manually activated) -->
+        <div class="blind-screen hidden" id="blind-overlay">
+          <div class="blind-card">
+            <div class="blind-icon">🕶️</div>
+            <h2 class="blind-title">PREVIEW PHASE ENDED</h2>
+            <p class="blind-desc">The target website has been hidden. Contestants, you may now open your code editors
+              and start building from memory!</p>
+            <div class="blind-meta">
+              <span class="badge-phase">BUILD PHASE IN PROGRESS</span>
+            </div>
+            <button class="btn btn-primary" id="unblind-btn">Reveal Screen (Organizer Only)</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Judge Comparison View (Hidden by default, shown when Judge tab is clicked) -->
+    <section class="judge-arena hidden" id="judge-section">
+      <div class="judge-header">
+        <div class="judge-title">
+          <h3>⚖️ Side-by-Side &amp; True Pixel-Diff Overlay Evaluator</h3>
+          <p>Compare participant's build against the original target. Switch to Overlay mode and use opacity to spot pixel-level alignment differences.</p>
+        </div>
+
+        <div class="judge-top-controls">
+          <!-- Target Round Picker -->
+          <div class="judge-control-group">
+            <label>Target Round:</label>
+            <select id="judge-round-picker" class="judge-select">
+              <option value="1">Round 1: AeroSound (Easy)</option>
+              <option value="2">Round 2: VeloxPay (Medium)</option>
+              <option value="3">Round 3: Nexus Quantum (Hard)</option>
+            </select>
+          </div>
+
+          <!-- View Mode Switcher -->
+          <div class="judge-view-modes">
+            <button class="view-mode-btn active" data-mode="split" id="mode-split-btn">↔️ Split View</button>
+            <button class="view-mode-btn" data-mode="overlay" id="mode-overlay-btn">🧅 Pixel Overlay</button>
+          </div>
+
+          <!-- Opacity Slider -->
+          <div class="slider-control" id="opacity-control-box">
+            <label>Overlay Opacity:</label>
+            <input type="range" id="opacity-slider" min="0" max="100" value="50">
+            <span id="opacity-val">50%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submission Loader Bar -->
+      <div class="judge-input-bar">
+        <div class="judge-field">
+          <label>Participant Submission URL or Path:</label>
+          <input type="text" id="participant-url-input" placeholder="e.g. http://localhost:5500/participant/ or round1/index.html">
+        </div>
+        <button class="btn btn-primary" id="load-participant-btn">Load URL</button>
+
+        <label for="participant-file-input" class="btn btn-outline" id="upload-file-label">
+          📁 Upload HTML File
+        </label>
+        <input type="file" id="participant-file-input" accept=".html,.htm" style="display: none;">
+
+        <div class="sample-presets">
+          <span class="preset-label">Quick Test:</span>
+          <button class="btn-preset" data-path="round1/index.html">R1</button>
+          <button class="btn-preset" data-path="round2/index.html">R2</button>
+          <button class="btn-preset" data-path="round3/index.html">R3</button>
+        </div>
+      </div>
+
+      <!-- Diff Viewports (Split or Stacked Overlay) -->
+      <div class="diff-viewports" id="diff-viewports-container">
+        <div class="diff-pane" id="diff-pane-target">
+          <div class="diff-pane-title">
+            <span class="pane-badge target">REFERENCE</span>
+            <span id="diff-target-label">ORIGINAL TARGET: Round 1 (AeroSound)</span>
+          </div>
+          <iframe src="round1/index.html" id="diff-target-frame"></iframe>
+        </div>
+
+        <div class="diff-pane" id="diff-pane-participant">
+          <div class="diff-pane-title">
+            <span class="pane-badge participant">CONTESTANT</span>
+            <span id="diff-participant-label">PARTICIPANT SUBMISSION</span>
+          </div>
+          <iframe src="round1/index.html" id="diff-participant-frame"></iframe>
+        </div>
+      </div>
+
+      <!-- Interactive Scoring Calculator -->
+      <div class="rubric-box">
+        <div class="rubric-top">
+          <div>
+            <h4>Official 100-Point Scoring Calculator</h4>
+            <p>Score the participant across all 4 calibrated competition rubrics.</p>
+          </div>
+          <div class="score-summary-pill">
+            <span class="score-label">FINAL SCORE:</span>
+            <strong class="score-value text-gold" id="total-score-display">0 / 100</strong>
+            <span class="score-grade" id="score-grade-badge">PENDING EVALUATION</span>
+            <button class="btn btn-sm btn-outline" id="copy-scorecard-btn">📋 Copy Scorecard</button>
+          </div>
+        </div>
+
+        <div class="rubric-grid">
+          <div class="rubric-item">
+            <div class="rubric-header">
+              <span class="r-cat">1. Layout &amp; Grid Accuracy</span>
+              <span class="r-max">Max: 30 pts</span>
+            </div>
+            <span class="r-desc">Flexbox, grid proportions, alignment, padding &amp; visual hierarchy.</span>
+            <div class="score-input-wrap">
+              <input type="number" class="score-input" id="score-layout" min="0" max="30" value="0">
+              <span class="input-denom">/ 30</span>
+            </div>
+          </div>
+
+          <div class="rubric-item">
+            <div class="rubric-header">
+              <span class="r-cat">2. Styling &amp; Visual Fidelity</span>
+              <span class="r-max">Max: 30 pts</span>
+            </div>
+            <span class="r-desc">Color palette accuracy, typography, border-radius, shadows, &amp; gradients.</span>
+            <div class="score-input-wrap">
+              <input type="number" class="score-input" id="score-styling" min="0" max="30" value="0">
+              <span class="input-denom">/ 30</span>
+            </div>
+          </div>
+
+          <div class="rubric-item">
+            <div class="rubric-header">
+              <span class="r-cat">3. Interactivity &amp; Micro-states</span>
+              <span class="r-max">Max: 20 pts</span>
+            </div>
+            <span class="r-desc">Hover transitions, toggles, scripts, buttons, dynamic calculations.</span>
+            <div class="score-input-wrap">
+              <input type="number" class="score-input" id="score-interactivity" min="0" max="20" value="0">
+              <span class="input-denom">/ 20</span>
+            </div>
+          </div>
+
+          <div class="rubric-item">
+            <div class="rubric-header">
+              <span class="r-cat">4. Code Quality &amp; Semantics</span>
+              <span class="r-max">Max: 20 pts</span>
+            </div>
+            <span class="r-desc">Clean semantic HTML5, organized CSS architecture, and error-free JavaScript.</span>
+            <div class="score-input-wrap">
+              <input type="number" class="score-input" id="score-code" min="0" max="20" value="0">
+              <span class="input-denom">/ 20</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Specs & Palette Modal -->
+  <div class="modal-backdrop hidden" id="specs-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modal-round-title">Round 1 — Design Tokens & Specs</h3>
+        <button class="modal-close" id="close-specs-btn">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-content">
+        <!-- Injected via JavaScript based on active round -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Rules Modal -->
+  <div class="modal-backdrop hidden" id="rules-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Blind & Build Competition Rules</h3>
+        <button class="modal-close" id="close-rules-btn">&times;</button>
+      </div>
+      <div class="modal-body rules-content">
+        <div class="rule-block">
+          <span class="rule-num">01</span>
+          <div>
+            <h4>Observation / Memorize Phase</h4>
+            <p>Participants get a fixed observation window (<strong>30s for Round 1</strong>, <strong>45s for Round 2</strong>, and <strong>1 minute for Round 3</strong>) to study the website. <strong>No screenshots,
+                no inspect element, and no note-taking</strong> (or as permitted by rules). Study the hierarchy, colors,
+              spacing, and interactive components.</p>
+          </div>
+        </div>
+
+        <div class="rule-block">
+          <span class="rule-num">02</span>
+          <div>
+            <h4>The Blindfold / Build Phase</h4>
+            <p>Once the preview timer expires, the target website is concealed. Participants have 30–60 minutes (30m for Round 1, 45m for Round 2, and 1 hour for Round 3) to
+              recreate the webpage from memory using standard HTML5, CSS3, and JavaScript.</p>
+          </div>
+        </div>
+
+        <div class="rule-block">
+          <span class="rule-num">03</span>
+          <div>
+            <h4>Difficulty Progression</h4>
+            <p><strong>Round 1 (Easy):</strong> Clean product landing page. Tests fundamental Flexbox, cards, and
+              typography.<br>
+              <strong>Round 2 (Medium):</strong> Fintech platform with glassmorphism, 3D floating credit card, and
+              pricing switch.<br>
+              <strong>Round 3 (Hard):</strong> High-density AI cloud telemetry dashboard with live streaming, pipeline
+              visualizer, and code tabs.
+            </p>
+          </div>
+        </div>
+
+        <div class="rule-block">
+          <span class="rule-num">04</span>
+          <div>
+            <h4>Judging & Victory</h4>
+            <p>Judges evaluate fidelity using the built-in Pixel-Diff Overlay tool. Closest layout alignment, color
+              reproduction, and interactive functionality wins the round!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="hub.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AeroSound — Pure Sound. Zero Noise.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="navbar" id="main-nav">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <span class="logo-mark">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M17 5v14M7 8v8M22 10v4M2 10v4"/>
+          </svg>
+        </span>
+        <span class="logo-text">Aero<strong>Sound</strong></span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#features" class="nav-link active">Features</a>
+        <a href="#specs" class="nav-link">Specifications</a>
+        <a href="reviews.html" class="nav-link">Reviews</a>
+        <a href="support.html" class="nav-link">Support</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="preorder.html" class="btn btn-primary btn-sm" id="nav-order-btn">Pre-Order</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero" id="hero-section">
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="badge" id="hero-badge">
+            <span class="badge-dot"></span>
+            <span>All-New Series 3 Pro</span>
+          </div>
+          
+          <h1 class="hero-title">
+            Pure Sound.<br>
+            <span class="text-gradient">Zero Noise.</span>
+          </h1>
+
+          <p class="hero-description">
+            Engineered with bespoke 40mm beryllium drivers and adaptive active noise cancellation that calibrates 48,000 times a second.
+          </p>
+
+          <div class="hero-actions">
+            <a href="preorder.html" class="btn btn-primary btn-lg" id="hero-buy-btn">
+              Order Now — $249
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+            <button class="btn btn-secondary btn-lg" id="hero-demo-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+              Watch 60s Demo
+            </button>
+          </div>
+
+          <!-- Quick Stats Row -->
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-value">54 hrs</span>
+              <span class="stat-label">Battery Playtime</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-value">-45 dB</span>
+              <span class="stat-label">Smart Hybrid ANC</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-value">18 ms</span>
+              <span class="stat-label">Ultra-Low Latency</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Showcase Card -->
+        <div class="hero-visual">
+          <div class="product-card" id="showcase-card">
+            <div class="card-glow"></div>
+            
+            <div class="product-tag">Studio Black Edition</div>
+
+            <div class="headphone-graphic">
+              <div class="headphone-halo"></div>
+              <!-- Minimalist Acoustic Illustration -->
+              <div class="headphone-illustration">
+                <div class="headband"></div>
+                <div class="earcup left-cup">
+                  <div class="earpad"></div>
+                  <div class="metallic-ring"></div>
+                </div>
+                <div class="earcup right-cup">
+                  <div class="earpad"></div>
+                  <div class="metallic-ring"></div>
+                </div>
+                <!-- Soundwave animation bars -->
+                <div class="sound-waves">
+                  <span class="wave-bar bar-1"></span>
+                  <span class="wave-bar bar-2"></span>
+                  <span class="wave-bar bar-3"></span>
+                  <span class="wave-bar bar-4"></span>
+                  <span class="wave-bar bar-5"></span>
+                  <span class="wave-bar bar-4"></span>
+                  <span class="wave-bar bar-2"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-footer">
+              <div class="product-status">
+                <span class="status-indicator"></span>
+                <span>Spatial Audio Active</span>
+              </div>
+              <div class="color-options">
+                <span class="color-dot black active" title="Obsidian Black"></span>
+                <span class="color-dot silver" title="Glacier Silver"></span>
+                <span class="color-dot midnight" title="Midnight Navy"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Features Section (3 Cards) -->
+    <section class="features" id="features">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Acoustic Mastery</span>
+          <h2 class="section-title">Designed for acoustic purists</h2>
+          <p class="section-subtitle">Every element has been crafted to deliver uncompromised fidelity from studio to street.</p>
+
+          <!-- Interactive Acoustic Mode Switcher -->
+          <div class="feature-mode-bar">
+            <span class="mode-bar-label">Interactive Acoustic Simulator:</span>
+            <div class="mode-buttons">
+              <button class="feat-mode-btn active" data-mode="anc" data-card="card-anc">
+                <span class="mode-icon">🛡️</span> Hybrid ANC (-45dB)
+              </button>
+              <button class="feat-mode-btn" data-mode="driver" data-card="card-drivers">
+                <span class="mode-icon">🎵</span> Beryllium Spatial (45kHz)
+              </button>
+              <button class="feat-mode-btn" data-mode="battery" data-card="card-battery">
+                <span class="mode-icon">⚡</span> Flash Charge Turbo
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-grid">
+          <!-- Feature Card 1 -->
+          <div class="feature-card active" id="card-anc" data-mode="anc">
+            <div class="card-status-badge">ACTIVE MODE</div>
+            <div class="feature-icon-wrapper icon-orange">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                <line x1="12" y1="19" x2="12" y2="22"/>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">Adaptive Active Noise Cancellation</h3>
+            <p class="feature-card-text">
+              Triple microphones on each ear continuously monitor ambient noise, filtering out background distractions with microsecond precision.
+            </p>
+            <div class="feature-metric">
+              <span class="metric-num" id="anc-stat-val">99.4%</span>
+              <span class="metric-desc">Ambient Noise Reduct.</span>
+            </div>
+            <div class="feature-test-action">
+              <button class="btn-test-feat" data-target="anc">Test ANC Isolation</button>
+            </div>
+          </div>
+
+          <!-- Feature Card 2 -->
+          <div class="feature-card" id="card-drivers" data-mode="driver">
+            <div class="card-status-badge">STANDBY</div>
+            <div class="feature-icon-wrapper icon-blue">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <polygon points="10 8 16 12 10 16 10 8"/>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">Custom 40mm Beryllium Drivers</h3>
+            <p class="feature-card-text">
+              Ultra-lightweight diaphragms provide lightning-fast transient response, deep sub-bass punch, and sparkling highs up to 45kHz.
+            </p>
+            <div class="feature-metric">
+              <span class="metric-num">5Hz - 45kHz</span>
+              <span class="metric-desc">Frequency Range</span>
+            </div>
+            <div class="feature-test-action">
+              <button class="btn-test-feat" data-target="driver">Simulate Frequency Sweep</button>
+            </div>
+          </div>
+
+          <!-- Feature Card 3 -->
+          <div class="feature-card" id="card-battery" data-mode="battery">
+            <div class="card-status-badge">STANDBY</div>
+            <div class="feature-icon-wrapper icon-purple">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="16" height="10" rx="2" ry="2"/>
+                <line x1="22" y1="11" x2="22" y2="13"/>
+                <polygon points="7 12 11 9 10 12 13 12 9 15 10 12 7 12"/>
+              </svg>
+            </div>
+            <h3 class="feature-card-title">Rapid Flash Charge</h3>
+            <p class="feature-card-text">
+              Get 6 hours of full playback from just a 10-minute USB-C charge. Never miss a beat during long flights or intense work sessions.
+            </p>
+            <div class="feature-metric">
+              <span class="metric-num" id="battery-stat-val">10 min</span>
+              <span class="metric-desc">Yields 6 Hours</span>
+            </div>
+            <div class="feature-test-action">
+              <button class="btn-test-feat" data-target="battery">Simulate Quick Charge</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Simulation Output Banner -->
+        <div class="sim-feedback-banner" id="acoustic-sim-output">
+          <div class="sim-icon">🎧</div>
+          <div class="sim-info">
+            <h4 id="sim-title">Hybrid Active Noise Cancellation Active</h4>
+            <p id="sim-desc">Background noise attenuated by -45dB. Sound waves flattened across low-frequency rumble spectrum (20Hz - 800Hz).</p>
+          </div>
+          <div class="sim-meter">
+            <span class="meter-label">ISOLATION EFFICIENCY:</span>
+            <div class="sim-bar"><div class="sim-bar-fill" id="sim-bar-fill" style="width: 95%;"></div></div>
+            <span class="meter-val text-orange" id="sim-meter-val">99.4% (-45dB)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Workable Hardware Specifications Section -->
+    <section class="specs-section" id="specs">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">ENGINEERING SPECS</span>
+          <h2 class="section-title">Technical Specifications</h2>
+          <p class="section-subtitle">Precision acoustic components and micro-engineered materials detailed for audio engineers.</p>
+
+          <!-- Category Filter Tabs -->
+          <div class="specs-tab-bar">
+            <button class="spec-tab active" data-category="audio">Acoustic Drivers &amp; Audio</button>
+            <button class="spec-tab" data-category="wireless">Wireless &amp; Codecs</button>
+            <button class="spec-tab" data-category="battery">Power &amp; Battery</button>
+            <button class="spec-tab" data-category="build">Chassis &amp; Materials</button>
+          </div>
+        </div>
+
+        <!-- Dynamic Spec Grid Container -->
+        <div class="specs-grid" id="specs-container">
+          <!-- Default: Audio Category -->
+          <div class="spec-card">
+            <span class="spec-label">TRANSDUCER TYPE</span>
+            <div class="spec-value">40mm Custom Beryllium Foil</div>
+            <p class="spec-detail">Laser-annealed diaphragm with neodymium N52 motor system for zero distortion.</p>
+          </div>
+          <div class="spec-card">
+            <span class="spec-label">FREQUENCY RESPONSE</span>
+            <div class="spec-value">5 Hz – 45,000 Hz</div>
+            <p class="spec-detail">Exceeds Hi-Res Audio certification standards with extended ultra-high treble extension.</p>
+          </div>
+          <div class="spec-card">
+            <span class="spec-label">TOTAL HARMONIC DISTORTION</span>
+            <div class="spec-value">&lt; 0.05% THD @ 1kHz</div>
+            <p class="spec-detail">Measured at 100 dB SPL reference output for absolute studio monitoring transparency.</p>
+          </div>
+          <div class="spec-card">
+            <span class="spec-label">ACOUSTIC CHAMBER</span>
+            <div class="spec-value">Dual-Vented Helmholtz Port</div>
+            <p class="spec-detail">Regulates internal back-pressure to provide effortless, visceral sub-bass articulation.</p>
+          </div>
+        </div>
+
+        <!-- Interactive Wireless Codec & Bitrate Tester -->
+        <div class="codec-tester-card">
+          <div class="codec-tester-head">
+            <div class="codec-title-wrap">
+              <span class="codec-tag">LIVE BITRATE PROBE</span>
+              <h3>Bluetooth Codec Fidelity Benchmarker</h3>
+              <p>Select a transmission protocol to compare audio bandwidth and streaming resolution.</p>
+            </div>
+            <div class="codec-buttons">
+              <button class="codec-btn active" data-codec="ldac" data-bitrate="990" data-quality="Hi-Res Studio Master (24-bit / 96kHz)" data-pct="100">
+                Sony LDAC (990 kbps)
+              </button>
+              <button class="codec-btn" data-codec="aptx" data-bitrate="576" data-quality="Lossless CD Quality (16-bit / 48kHz)" data-pct="58">
+                aptX Adaptive (576 kbps)
+              </button>
+              <button class="codec-btn" data-codec="aac" data-bitrate="256" data-quality="Standard Streaming (VBR AAC)" data-pct="26">
+                Apple AAC (256 kbps)
+              </button>
+            </div>
+          </div>
+
+          <div class="codec-display-row">
+            <div class="codec-meter-wrap">
+              <div class="codec-meter-labels">
+                <span>TRANSMISSION BITRATE:</span>
+                <strong class="text-orange" id="codec-bitrate-text">990 kbps</strong>
+              </div>
+              <div class="codec-bar-track">
+                <div class="codec-bar-fill" id="codec-bar-fill" style="width: 100%;"></div>
+              </div>
+            </div>
+            <div class="codec-badge-wrap">
+              <span class="codec-badge-label">STREAMING FIDELITY RATING:</span>
+              <div class="codec-status-pill" id="codec-quality-pill">Hi-Res Studio Master (24-bit / 96kHz)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section" id="reviews">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">CRITICAL ACCLAIM</span>
+          <h2 class="section-title">Tested by Acoustic Pioneers</h2>
+          <p class="section-subtitle">Read how industry-leading sound engineers and creators experience AeroSound.</p>
+        </div>
+        
+        <div class="reviews-grid">
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"The beryllium diaphragm creates transient detail I normally only hear on $3,000 mastering monitors. Sub-bass articulation is uncanny."</p>
+            <div class="review-author">
+              <span class="author-name">Marcus Vance</span>
+              <span class="author-role">Mastering Engineer, SoundGrid Studios</span>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"The adaptive ANC eliminated turbine rumble across an 11-hour Tokyo flight without any ear-canal pressure fatigue. Absolute game changer."</p>
+            <div class="review-author">
+              <span class="author-name">Elena Rostova</span>
+              <span class="author-role">Senior Editor, Audiophile Quarterly</span>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Sony LDAC streaming fidelity with 54-hour continuous battery life. AeroSound has redefined everyday wireless audio engineering."</p>
+            <div class="review-author">
+              <span class="author-name">David Chen</span>
+              <span class="author-role">Acoustic Architect, WaveLab</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 36px;">
+          <a href="reviews.html" class="btn btn-outline" style="border: 1px solid var(--border-hover); padding: 12px 28px; border-radius: var(--radius-sm); font-weight: 600;">
+            Explore Full Reviews Hub (1,480+ Reviews &amp; Lab Benchmarks) ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Callout Banner -->
+    <section class="cta-banner" id="order">
+      <div class="container">
+        <div class="banner-box">
+          <div class="banner-text">
+            <h2>Ready to transform how you listen?</h2>
+            <p>Free 30-day trial with complimentary expedited global shipping.</p>
+          </div>
+          <a href="preorder.html" class="btn btn-primary btn-lg">Pre-Order Series 3 — $249 ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Clean Footer -->
+  <footer class="footer" id="support">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="logo-text">Aero<strong>Sound</strong></span>
+        </div>
+        <p class="footer-tagline">Crafted for listeners who demand acoustic perfection.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="index.html">Showcase Home</a>
+        <a href="reviews.html">Verified Reviews</a>
+        <a href="support.html">Customer Support</a>
+        <a href="preorder.html">Pre-Order Reservation</a>
+      </div>
+
+      <div class="footer-copy">
+        &copy; 2026 AeroSound Acoustics Ltd. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
